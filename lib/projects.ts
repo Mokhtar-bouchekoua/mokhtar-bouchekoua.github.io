@@ -17,7 +17,7 @@ export type Project = {
   implementation: string[]
   results: { value: string; label: string; context: string }[]
   stack: string[]
-  diagram: ProjectVisual
+  visual: ProjectVisual
   repositoryUrl?: string
 }
 
@@ -54,7 +54,7 @@ export const projects: Project[] = [
       { value: "94%", label: "HitRate@1", context: "LangGraph RAG assistant on the evaluation set" },
     ],
     stack: ["FastAPI", "PostgreSQL", "TimescaleDB", "MQTT", "LightGBM", "LangGraph", "Langfuse", "Next.js", "React", "Three.js", "Docker"],
-    diagram: "twin",
+    visual: "twin",
   },
   {
     slug: "erp-business-intelligence",
@@ -87,7 +87,7 @@ export const projects: Project[] = [
       { value: "5", label: "financial KPIs", context: "alongside a health score and What-If simulation" },
     ],
     stack: ["Python", "Pandas", "Streamlit", "Plotly", "Ollama", "Groq", "Context Injection"],
-    diagram: "bi",
+    visual: "bi",
     repositoryUrl: "https://github.com/Mokhtar-bouchekoua/paramedics-bi-dashboard",
   },
   {
@@ -121,7 +121,7 @@ export const projects: Project[] = [
       { value: "98.3%", label: "macro F1 · RCA", context: "root cause analysis task" },
     ],
     stack: ["Python", "PyTorch", "Causal TCN", "Self-Attention", "FusionGate", "MQTT", "FastAPI", "Firebase", "Angular"],
-    diagram: "edge",
+    visual: "edge",
   },
   {
     slug: "smartalpr-plaqueguard",
@@ -153,7 +153,7 @@ export const projects: Project[] = [
       { value: "88% / 0.72", label: "Hit Rate / MRR", context: "RAG evaluation" },
     ],
     stack: ["YOLOv11-L-seg", "LPRNet", "OCR", "Arabic RTL", "FAISS", "LLM", "RAG"],
-    diagram: "alpr",
+    visual: "alpr",
   },
 ]
 

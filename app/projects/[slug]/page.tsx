@@ -38,7 +38,7 @@ export default async function CaseStudyPage({ params }: Props) {
           </div>}
         </header>
 
-        <div className="container case-hero-art"><ProjectArtwork kind={project.diagram} /></div>
+        <div className="container case-hero-art"><ProjectArtwork visual={project.visual} /></div>
 
         <section className="container case-section case-overview">
           <div><span className="eyebrow">01 / OVERVIEW</span><h2>The problem and the system.</h2></div>

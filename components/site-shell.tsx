@@ -4,6 +4,10 @@ import { ArrowDown, ArrowRight, ArrowUpRight } from "lucide-react"
 import { SiteHeader } from "@/components/site-header"
 import { links, type Project } from "@/lib/projects"
 import { categoryLabel } from "@/lib/project-translations"
+import { BackToTop } from "@/features/navigation/ui/back-to-top"
+import { ProjectArtwork } from "@/features/projects/ui/project-artwork"
+
+export { ProjectArtwork } from "@/features/projects/ui/project-artwork"
 
 export function SiteFooter({ locale = "en" }: { locale?: "en" | "fr" }) {
   const copy = locale === "fr"
@@ -32,7 +36,7 @@ export function SiteFooter({ locale = "en" }: { locale?: "en" | "fr" }) {
 }
 
 export function PageFrame({ children, locale = "en" }: { children: React.ReactNode; locale?: "en" | "fr" }) {
-  return <div lang={locale}><SiteHeader /><main id="main-content">{children}</main><SiteFooter locale={locale} /></div>
+  return <div lang={locale}><SiteHeader /><main id="main-content">{children}</main><SiteFooter locale={locale} /><BackToTop locale={locale} /></div>
 }
 
 export function ButtonLink({ href, children, secondary = false }: {
@@ -77,38 +81,11 @@ export function HeroVisual({ locale = "en" }: { locale?: "en" | "fr" }) {
   )
 }
 
-export function ProjectArtwork({ kind, compact = false, locale = "en" }: { kind: Project["diagram"]; compact?: boolean; locale?: "en" | "fr" }) {
-  const french = locale === "fr"
-  return (
-    <div className={`project-art art-${kind}${compact ? " art-compact" : ""}`} aria-hidden="true">
-      <span className="art-caption">{french ? "VUE CONCEPTUELLE DU SYSTÈME" : "CONCEPTUAL SYSTEM VIEW"}</span>
-      {kind === "twin" && <>
-        <div className="twin-grid" />
-        <div className="twin-building"><i /><i /><i /><i /><i /><i /><i /><i /><i /></div>
-        <div className="twin-pulse pulse-one" /><div className="twin-pulse pulse-two" />
-        <span className="art-chip chip-left">{french ? "IoT → Séries temporelles" : "IoT → Time series"}</span><span className="art-chip chip-right">3D + IA</span>
-      </>}
-      {kind === "bi" && <>
-        <div className="bi-display"><span>{french ? "ERP / QUALITÉ DES DONNÉES" : "ERP / DATA QUALITY"}</span><div className="bi-stat"><strong>8,497 <b>→</b> 36</strong><small>{french ? "anomalies détectées après nettoyage" : "detected violations after cleaning"}</small></div><div className="bi-display-bottom"><b>{french ? "20 FICHIERS CSV" : "20 CSV FILES"}</b><b>{french ? "22 387 ENREGISTREMENTS" : "22,387 RECORDS"}</b></div></div>
-      </>}
-      {kind === "edge" && <>
-        <div className="edge-radar"><div /><div /><div /><span>CAT<br />MTL</span></div>
-        <span className="edge-point edge-point-a" /><span className="edge-point edge-point-b" /><span className="edge-point edge-point-c" />
-        <span className="edge-label">{french ? "DÉTECTER / CLASSER / EXPLIQUER" : "DETECT / TYPE / EXPLAIN"}</span>
-      </>}
-      {kind === "alpr" && <>
-        <div className="alpr-frame"><div className="alpr-plate"><small>تونس</small><span>12 | 34567</span></div><i className="alpr-line" /><b className="corner tl" /><b className="corner tr" /><b className="corner bl" /><b className="corner br" /></div>
-        <span className="alpr-label">{french ? "DÉTECTION → OCR → RAG" : "DETECTION → OCR → RAG"}</span>
-      </>}
-    </div>
-  )
-}
-
 export function ProjectCard({ project, featured = false, locale = "en" }: { project: Project; featured?: boolean; locale?: "en" | "fr" }) {
   const href = locale === "fr" ? `/fr/projects/${project.slug}` : `/projects/${project.slug}`
   return (
     <Link href={href} className={`project-card${featured ? " featured" : ""}`}>
-      <ProjectArtwork kind={project.diagram} compact locale={locale} />
+      <ProjectArtwork visual={project.visual} compact locale={locale} />
       <div className="project-card-content">
         <div className="card-meta"><span>{project.number} / {categoryLabel(project.category, locale)}</span>{project.timeframe && <span>{project.timeframe}</span>}</div>
         <div><h3>{project.shortTitle}</h3><p>{project.summary}</p></div>
@@ -120,7 +97,7 @@ export function ProjectCard({ project, featured = false, locale = "en" }: { proj
 }
 
 export function Diagram({ project, locale = "en" }: { project: Project; locale?: "en" | "fr" }) {
-  const steps: Record<Project["diagram"], string[]> = locale === "fr" ? {
+  const steps: Record<Project["visual"], string[]> = locale === "fr" ? {
     twin: ["Sources IoT", "FastAPI + MQTT", "TimescaleDB + IA", "Interface 3D"],
     bi: ["Exports ERP", "Validation des données", "Indicateurs financiers", "Assistant LLM"],
     edge: ["Flux IoT", "TCN causal", "Modèle multitâche", "Cause racine"],
@@ -133,8 +110,8 @@ export function Diagram({ project, locale = "en" }: { project: Project; locale?:
   }
 
   return (
-    <div className="process-diagram" aria-label={`Conceptual workflow: ${steps[project.diagram].join(" to ")}`}>
-      {steps[project.diagram].map((step, index) => (
+    <div className="process-diagram" aria-label={`Conceptual workflow: ${steps[project.visual].join(" to ")}`}>
+      {steps[project.visual].map((step, index) => (
         <div className="process-step" key={step}>
           <span>0{index + 1}</span><strong>{step}</strong>
           {index < 3 && <ArrowRight size={18} aria-hidden="true" />}

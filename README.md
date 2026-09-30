@@ -31,7 +31,7 @@ English remains the default at the root URL. The language selector keeps the vis
 - Edit project details and links in `lib/projects.ts`.
 - The original portrait is copied to `public/mokhtar-bouchekoua.jpg`.
 - The CV and AI portfolio source PDFs remain outside `site`; neither is served by the website.
-- Project illustrations are conceptual CSS compositions. The ERP illustration uses the measured data-quality result from the supplied portfolio PDF; no illustration is presented as an application screenshot.
+- Project cover visuals are optimized WebP concept illustrations in `public/projects/`. They are labeled as conceptual and are not presented as application screenshots.
 - The ERP case study links to its verified public GitHub repository. Add other repository or demo links only when they match the case study and are public.
 
 ## Publish on GitHub Pages

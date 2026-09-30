@@ -6,6 +6,7 @@ import Link from "next/link"
 import { usePathname, useRouter } from "next/navigation"
 import { useTheme } from "next-themes"
 import { ArrowUpRight, Menu, Moon, Sun, X } from "lucide-react"
+import { LocaleSwitcher } from "@/features/navigation/ui/locale-switcher"
 
 const navigation = [
   { href: "/projects", key: "projects" },
@@ -32,7 +33,7 @@ export function SiteHeader() {
 
   const localizedHref = (href: string) => locale === "fr" ? `/fr${href === "/" ? "" : href}` : href
   const isActive = (href: string) => localPath === href || (href === "/projects" && localPath.startsWith("/projects/"))
-  const chooseLocale = (nextLocale: string) => {
+  const chooseLocale = (nextLocale: "en" | "fr") => {
     const nextPath = nextLocale === "fr" ? `/fr${localPath === "/" ? "" : localPath}` : localPath
     router.push(nextPath)
   }
@@ -50,11 +51,7 @@ export function SiteHeader() {
           {navigation.map(({ href, key }) => <Link key={href} href={localizedHref(href)} aria-current={isActive(href) ? "page" : undefined}>{copy[key]}</Link>)}
         </nav>
         <div className="header-tools">
-          <label className="visually-hidden" htmlFor="site-language">{copy.language}</label>
-          <select id="site-language" className="language-select" value={locale} onChange={(event) => chooseLocale(event.target.value)}>
-            <option value="en">EN</option>
-            <option value="fr">FR</option>
-          </select>
+          <LocaleSwitcher locale={locale} label={copy.language} onChange={chooseLocale} />
           <button className="theme-toggle" type="button" onClick={toggleTheme} aria-label={themeIsDark ? copy.themeLight : copy.themeDark} title={themeIsDark ? copy.themeLight : copy.themeDark}>
             {themeIsDark ? <Sun size={17} aria-hidden="true" /> : <Moon size={17} aria-hidden="true" />}
           </button>
@@ -68,10 +65,8 @@ export function SiteHeader() {
             {navigation.map(({ href, key }) => <Link key={href} href={localizedHref(href)} aria-current={isActive(href) ? "page" : undefined}>{copy[key]}</Link>)}
             <Link href={localizedHref("/contact")} aria-current={localPath === "/contact" ? "page" : undefined}>{copy.contact}</Link>
             <div className="mobile-menu-tools">
-              <span>{copy.language}</span>
-              <button type="button" aria-pressed={locale === "en"} onClick={() => chooseLocale("en")}>EN</button>
-              <button type="button" aria-pressed={locale === "fr"} onClick={() => chooseLocale("fr")}>FR</button>
-              <button type="button" onClick={toggleTheme}>{themeIsDark ? copy.themeLight : copy.themeDark}</button>
+              <LocaleSwitcher locale={locale} label={copy.language} onChange={chooseLocale} showLabel />
+              <button className="theme-menu-toggle" type="button" onClick={toggleTheme}>{themeIsDark ? copy.themeLight : copy.themeDark}</button>
             </div>
           </nav>
         </details>

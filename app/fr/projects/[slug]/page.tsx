@@ -44,7 +44,7 @@ export default async function FrenchCaseStudyPage({ params }: Props) {
           {project.repositoryUrl && <div className="case-action-links"><a className="case-source-link" href={project.repositoryUrl} target="_blank" rel="noopener noreferrer">{t("publicCode")} <ArrowUpRight size={16} aria-hidden="true" /></a></div>}
         </header>
 
-        <div className="container case-hero-art"><ProjectArtwork kind={project.diagram} locale="fr" /></div>
+        <div className="container case-hero-art"><ProjectArtwork visual={project.visual} locale="fr" /></div>
 
         <section className="container case-section case-overview">
           <div><span className="eyebrow">{t("overview")}</span><h2>{t("problem")}</h2></div>
