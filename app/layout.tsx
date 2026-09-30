@@ -7,7 +7,10 @@ import "./globals.css"
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: { default: "Mokhtar Bouchekoua — AI & Full Stack Engineer", template: "%s — Mokhtar Bouchekoua" },
+  title: {
+    default: "Mokhtar Bouchekoua — AI & Full Stack Engineer",
+    template: "Mokhtar Bouchekoua — AI & Full Stack Engineer | %s",
+  },
   description: "Explore the projects, experience and engineering approach of Mokhtar Bouchekoua, AI & Full Stack Engineer in Sfax, Tunisia.",
   keywords: ["Mokhtar Bouchekoua", "AI engineer", "full stack engineer", "FastAPI", "machine learning"],
   openGraph: {
