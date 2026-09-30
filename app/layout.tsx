@@ -1,5 +1,8 @@
 import type { Metadata, Viewport } from "next"
 import { siteUrl } from "@/lib/site-url"
+import { ThemeProvider } from "@/components/theme-provider"
+import { CloudflareAnalytics } from "@/components/cloudflare-analytics"
+import { LocaleAttribute } from "@/components/locale-attribute"
 import "./globals.css"
 
 export const metadata: Metadata = {
@@ -16,8 +19,19 @@ export const metadata: Metadata = {
   icons: { icon: "/icon.svg" },
 }
 
-export const viewport: Viewport = { themeColor: "#f6f7f5", colorScheme: "light" }
+export const viewport: Viewport = { themeColor: "#f6f7f5", colorScheme: "light dark" }
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en"><body><a href="#main-content" className="skip-link">Skip to content</a>{children}</body></html>
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <body>
+        <ThemeProvider>
+          <LocaleAttribute />
+          <a href="#main-content" className="skip-link">Skip to content</a>
+          {children}
+        </ThemeProvider>
+        <CloudflareAnalytics />
+      </body>
+    </html>
+  )
 }

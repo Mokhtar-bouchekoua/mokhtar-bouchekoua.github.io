@@ -1,45 +1,78 @@
 "use client"
 
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { usePathname } from "next/navigation"
-import { ArrowUpRight, Menu, X } from "lucide-react"
+import { usePathname, useRouter } from "next/navigation"
+import { useTheme } from "next-themes"
+import { ArrowUpRight, Menu, Moon, Sun, X } from "lucide-react"
 
 const navigation = [
-  { href: "/projects", label: "Projects" },
-  { href: "/about", label: "About" },
-  { href: "/resume", label: "Resume" },
-]
+  { href: "/projects", key: "projects" },
+  { href: "/about", key: "about" },
+  { href: "/resume", key: "resume" },
+] as const
 
 export function SiteHeader() {
   const pathname = usePathname()
+  const router = useRouter()
   const menuRef = useRef<HTMLDetailsElement>(null)
+  const { resolvedTheme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+  const locale = pathname === "/fr" || pathname.startsWith("/fr/") ? "fr" : "en"
+  const localPath = locale === "fr" ? (pathname.slice(3) || "/") : pathname
+  const copy = locale === "fr"
+    ? { projects: "Projets", about: "À propos", resume: "CV", contact: "Contact", main: "Navigation principale", mobile: "Navigation mobile", toggle: "Ouvrir ou fermer le menu", language: "Langue", themeLight: "Activer le mode clair", themeDark: "Activer le mode sombre" }
+    : { projects: "Projects", about: "About", resume: "Resume", contact: "Contact", main: "Main navigation", mobile: "Mobile navigation", toggle: "Toggle navigation", language: "Language", themeLight: "Switch to light mode", themeDark: "Switch to dark mode" }
 
   useEffect(() => {
+    setMounted(true)
     if (menuRef.current) menuRef.current.open = false
   }, [pathname])
 
-  const isActive = (href: string) => pathname === href || (href === "/projects" && pathname.startsWith("/projects/"))
+  const localizedHref = (href: string) => locale === "fr" ? `/fr${href === "/" ? "" : href}` : href
+  const isActive = (href: string) => localPath === href || (href === "/projects" && localPath.startsWith("/projects/"))
+  const chooseLocale = (nextLocale: string) => {
+    const nextPath = nextLocale === "fr" ? `/fr${localPath === "/" ? "" : localPath}` : localPath
+    router.push(nextPath)
+  }
+  const themeIsDark = mounted && resolvedTheme === "dark"
+  const toggleTheme = () => setTheme(themeIsDark ? "light" : "dark")
 
   return (
     <header className="site-header">
       <div className="container header-inner">
-        <Link href="/" className="brand" aria-label="Mokhtar Bouchekoua, home">
+        <Link href={localizedHref("/")} className="brand" aria-label="Mokhtar Bouchekoua, home">
           <Image src="/mokhtar-bouchekoua.jpg" alt="" width={38} height={38} className="brand-photo" />
           <span>Mokhtar <strong>Bouchekoua</strong></span>
         </Link>
-        <nav className="desktop-nav" aria-label="Main navigation">
-          {navigation.map(({ href, label }) => <Link key={href} href={href} aria-current={isActive(href) ? "page" : undefined}>{label}</Link>)}
+        <nav className="desktop-nav" aria-label={copy.main}>
+          {navigation.map(({ href, key }) => <Link key={href} href={localizedHref(href)} aria-current={isActive(href) ? "page" : undefined}>{copy[key]}</Link>)}
         </nav>
-        <Link className="header-contact" href="/contact" aria-current={pathname === "/contact" ? "page" : undefined}>
-          Contact <ArrowUpRight size={16} aria-hidden="true" />
-        </Link>
+        <div className="header-tools">
+          <label className="visually-hidden" htmlFor="site-language">{copy.language}</label>
+          <select id="site-language" className="language-select" value={locale} onChange={(event) => chooseLocale(event.target.value)}>
+            <option value="en">EN</option>
+            <option value="fr">FR</option>
+          </select>
+          <button className="theme-toggle" type="button" onClick={toggleTheme} aria-label={themeIsDark ? copy.themeLight : copy.themeDark} title={themeIsDark ? copy.themeLight : copy.themeDark}>
+            {themeIsDark ? <Sun size={17} aria-hidden="true" /> : <Moon size={17} aria-hidden="true" />}
+          </button>
+          <Link className="header-contact" href={localizedHref("/contact")} aria-current={localPath === "/contact" ? "page" : undefined}>
+            {copy.contact} <ArrowUpRight size={16} aria-hidden="true" />
+          </Link>
+        </div>
         <details className="mobile-nav" ref={menuRef}>
-          <summary aria-label="Toggle navigation"><Menu className="menu-icon" size={22} aria-hidden="true" /><X className="close-icon" size={22} aria-hidden="true" /></summary>
-          <nav aria-label="Mobile navigation">
-            {navigation.map(({ href, label }) => <Link key={href} href={href} aria-current={isActive(href) ? "page" : undefined}>{label}</Link>)}
-            <Link href="/contact" aria-current={pathname === "/contact" ? "page" : undefined}>Contact</Link>
+          <summary aria-label={copy.toggle}><Menu className="menu-icon" size={22} aria-hidden="true" /><X className="close-icon" size={22} aria-hidden="true" /></summary>
+          <nav aria-label={copy.mobile}>
+            {navigation.map(({ href, key }) => <Link key={href} href={localizedHref(href)} aria-current={isActive(href) ? "page" : undefined}>{copy[key]}</Link>)}
+            <Link href={localizedHref("/contact")} aria-current={localPath === "/contact" ? "page" : undefined}>{copy.contact}</Link>
+            <div className="mobile-menu-tools">
+              <span>{copy.language}</span>
+              <button type="button" aria-pressed={locale === "en"} onClick={() => chooseLocale("en")}>EN</button>
+              <button type="button" aria-pressed={locale === "fr"} onClick={() => chooseLocale("fr")}>FR</button>
+              <button type="button" onClick={toggleTheme}>{themeIsDark ? copy.themeLight : copy.themeDark}</button>
+            </div>
           </nav>
         </details>
       </div>

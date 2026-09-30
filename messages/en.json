@@ -1,0 +1,23 @@
+{
+  "Navigation": {
+    "projects": "Projects",
+    "about": "About",
+    "resume": "Resume",
+    "contact": "Contact",
+    "main": "Main navigation",
+    "mobile": "Mobile navigation",
+    "toggle": "Toggle navigation",
+    "language": "Language",
+    "themeLight": "Switch to light mode",
+    "themeDark": "Switch to dark mode",
+    "themeSystem": "Use system theme"
+  },
+  "Footer": {
+    "eyebrow": "NEXT CHAPTER",
+    "headline": "Let's talk about",
+    "headlineAccent": "what you're building.",
+    "contact": "Get in touch",
+    "links": "Footer links",
+    "role": "AI & Full Stack Engineer · Sfax, Tunisia"
+  }
+}
