@@ -31,12 +31,12 @@ export default function ResumePage() {
           <section className="resume-section"><span className="eyebrow">01 / EXPERIENCE</span>
             <article><time>2026</time><div><h3>AI &amp; Full Stack Engineer</h3><strong>I-Way · Final-year project</strong><p>Built a digital twin platform combining IoT ingestion, forecasting, anomaly detection, Agentic RAG and 3D visualization.</p></div></article>
             <article><time>2025</time><div><h3>Data &amp; AI / BI Intern</h3><strong>MyPartner</strong><p>Improved ERP data quality and developed an AI-enhanced financial analysis application.</p></div></article>
-            <article><time>2025</time><div><h3>Edge AI Research Project</h3><strong>IIT Sfax</strong><p>Developed and evaluated a multi-task model for IoT anomaly detection, typing and root cause analysis.</p></div></article>
+            <article><time>2025</time><div><h3>Edge AI Research Contribution</h3><strong>IIT Sfax</strong><p>Technical contribution to a broader academic research project under academic supervision and in collaboration with a research team in Toulouse, France, focused on anomaly detection, anomaly-type classification and root cause analysis in multivariate IoT data.</p></div></article>
             <article><time>2024</time><div><h3>Full Stack Developer Intern</h3><strong>Flash Marketing Digital</strong><p>Developed the Allo Fruit e-commerce platform with Laravel, React and MySQL.</p></div></article>
           </section>
 
           <section className="resume-section"><span className="eyebrow">02 / EDUCATION</span>
-            <article><time>2023—2026</time><div><h3>Engineering Degree in Computer Science</h3><strong>International Institute of Technology · Sfax</strong></div></article>
+            <article><time>2023—2026</time><div><h3>National Engineering Degree (Diplôme National d’Ingénieur) in Computer Engineering</h3><strong>International Institute of Technology · Sfax</strong></div></article>
             <article><time>2023</time><div><h3>Bachelor&apos;s Degree in Electronics, Electrical Engineering and Automation</h3><strong>Higher Institute of Industrial Management · Sfax</strong></div></article>
           </section>
 

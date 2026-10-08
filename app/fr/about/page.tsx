@@ -14,7 +14,7 @@ export async function generateMetadata(): Promise<Metadata> {
 const experience = [
   { date: "FÉV — JUIL 2026", title: "Ingénieur IA et Full Stack", place: "I-Way · Projet de fin d’études", detail: "Plateforme de jumeau numérique pour la supervision intelligente des bâtiments, les prévisions, la détection d’anomalies, le RAG et la visualisation 3D." },
   { date: "JUIL — AOÛT 2025", title: "Stagiaire Data & IA / BI", place: "MyPartner", detail: "Qualité des données ERP, indicateurs financiers, simulation What-If et assistant IA d’analyse métier." },
-  { date: "JAN — JUIN 2025", title: "Projet de recherche en Edge AI", place: "IIT Sfax", detail: "Détection et classification multitâches des anomalies et analyse de leurs causes dans des séries temporelles IoT multivariées." },
+  { date: "JAN — JUIN 2025", title: "Contribution à un projet de recherche en Edge AI", place: "IIT Sfax", detail: "Contribution technique à un projet de recherche académique plus large, mené sous supervision universitaire et en collaboration avec une équipe de recherche à Toulouse, en France. Le projet porte sur la détection d’anomalies, la classification de leur type et l’analyse des causes racines dans des données IoT multivariées." },
   { date: "JUIN — JUIL 2024", title: "Stagiaire développeur Full Stack", place: "Flash Marketing Digital", detail: "Développement de la plateforme e-commerce Allo Fruit avec Laravel, React et MySQL." },
   { date: "FÉV — JUIN 2023", title: "Drone agricole intelligent", place: "ISGI Sfax · Projet de fin d’études", detail: "Drone équipé d’un capteur NPK 7-en-1 et d’une application Flutter pour l’analyse des sols, les mesures et les alertes." },
 ]

@@ -35,12 +35,12 @@ export default async function FrenchResumePage() {
           <section className="resume-section"><span className="eyebrow">{t("experience")}</span>
             <article><time>2026</time><div><h3>Ingénieur IA et Full Stack</h3><strong>I-Way · Projet de fin d’études</strong><p>Développement d’un jumeau numérique réunissant ingestion IoT, prévisions, détection d’anomalies, RAG agentique et visualisation 3D.</p></div></article>
             <article><time>2025</time><div><h3>Stagiaire Data &amp; IA / BI</h3><strong>MyPartner</strong><p>Amélioration de la qualité des données ERP et développement d’une application d’analyse financière enrichie par l’IA.</p></div></article>
-            <article><time>2025</time><div><h3>Projet de recherche en Edge AI</h3><strong>IIT Sfax</strong><p>Développement et évaluation d’un modèle multitâche pour la détection et la classification d’anomalies IoT et l’analyse de leurs causes.</p></div></article>
+            <article><time>2025</time><div><h3>Contribution à un projet de recherche en Edge AI</h3><strong>IIT Sfax</strong><p>Contribution technique à un projet de recherche académique plus large, mené sous supervision universitaire et en collaboration avec une équipe de recherche à Toulouse, en France. Le projet porte sur la détection d’anomalies, la classification de leur type et l’analyse des causes racines dans des données IoT multivariées.</p></div></article>
             <article><time>2024</time><div><h3>Stagiaire développeur Full Stack</h3><strong>Flash Marketing Digital</strong><p>Développement de la plateforme e-commerce Allo Fruit avec Laravel, React et MySQL.</p></div></article>
           </section>
 
           <section className="resume-section"><span className="eyebrow">{t("education")}</span>
-            <article><time>2023—2026</time><div><h3>Diplôme d’ingénieur en informatique</h3><strong>Institut International de Technologie · Sfax</strong></div></article>
+            <article><time>2023—2026</time><div><h3>Diplôme National d’Ingénieur en Génie Informatique</h3><strong>Institut International de Technologie · Sfax</strong></div></article>
             <article><time>2023</time><div><h3>Licence en électronique, génie électrique et automatisme</h3><strong>Institut Supérieur de Gestion Industrielle · Sfax</strong></div></article>
           </section>
 

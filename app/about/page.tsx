@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 const experience = [
   { date: "FEB — JUL 2026", title: "AI & Full Stack Engineer", place: "I-Way · Final-year project", detail: "Digital twin platform for intelligent building monitoring, forecasting, anomaly detection, RAG and 3D visualization." },
   { date: "JUL — AUG 2025", title: "Data & AI / BI Intern", place: "MyPartner", detail: "ERP data quality, financial KPIs, What-If simulation and an AI assistant for business analysis." },
-  { date: "JAN — JUN 2025", title: "Edge AI Research Project", place: "IIT Sfax", detail: "Multi-task anomaly detection, typing and root cause analysis in multivariate IoT time series." },
+  { date: "JAN — JUN 2025", title: "Edge AI Research Contribution", place: "IIT Sfax", detail: "Technical contribution to a broader academic research project under academic supervision and in collaboration with a research team in Toulouse, France, focused on anomaly detection, anomaly-type classification and root cause analysis in multivariate IoT data." },
   { date: "JUN — JUL 2024", title: "Full Stack Developer Intern", place: "Flash Marketing Digital", detail: "Developed the Allo Fruit e-commerce platform with Laravel, React and MySQL." },
   { date: "FEB — JUN 2023", title: "Smart Agricultural Drone", place: "ISGI Sfax · Final-year project", detail: "Drone with a 7-in-1 NPK sensor and a Flutter app for soil analysis, measurements and alerts." },
 ]
@@ -52,7 +52,7 @@ export default function AboutPage() {
         <div className="container education-grid">
           <SectionIntro eyebrow="02 / EDUCATION" title="Grounded in engineering." />
           <div className="education-list">
-            <div><span>2023 — 2026</span><h3>Engineering Degree in Computer Science</h3><p>International Institute of Technology (IIT) · Sfax, Tunisia</p></div>
+            <div><span>2023 — 2026</span><h3>National Engineering Degree (Diplôme National d’Ingénieur) in Computer Engineering</h3><p>International Institute of Technology (IIT) · Sfax, Tunisia</p></div>
             <div><span>2023</span><h3>Bachelor&apos;s Degree in Electronics, Electrical Engineering and Automation</h3><p>Higher Institute of Industrial Management (ISGI) · Sfax, Tunisia</p></div>
           </div>
         </div>
