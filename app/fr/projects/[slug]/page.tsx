@@ -3,7 +3,8 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 import { getTranslations } from "next-intl/server"
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react"
-import { Diagram, PageFrame, ProjectArtwork } from "@/components/site-shell"
+import { PageFrame, ProjectArtwork } from "@/components/site-shell"
+import { ArchitectureDiagram } from "@/features/projects/ui/architecture-diagram"
 import { getAdjacentProjects, getProject, projects } from "@/lib/projects"
 import { localeAlternates } from "@/lib/site-url"
 import { categoryLabel, projectForLocale } from "@/lib/project-translations"
@@ -58,7 +59,7 @@ export default async function FrenchCaseStudyPage({ params }: Props) {
         </section>
 
         <section className="case-process">
-          <div className="container"><div className="case-section-heading"><span className="eyebrow">{t("flow")}</span><h2>{t("input")}</h2></div><Diagram project={project} locale="fr" /></div>
+          <div className="container"><div className="case-section-heading"><span className="eyebrow">{t("flow")}</span><h2>{t("input")}</h2></div><ArchitectureDiagram visual={project.visual} locale="fr" /></div>
         </section>
 
         <section className="container case-section case-approach">

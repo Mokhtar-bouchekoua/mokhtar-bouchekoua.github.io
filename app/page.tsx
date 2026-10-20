@@ -5,13 +5,13 @@ import {
   ButtonLink,
   ContactLink,
   FeatureStats,
-  HeroVisual,
   MetricStrip,
   PageFrame,
   ProjectCard,
   ScrollCue,
   SectionIntro,
 } from "@/components/site-shell"
+import { HeroTwin } from "@/features/hero/ui/hero-twin"
 import type { Metadata } from "next"
 import { availability, projects, proofPoints, skills } from "@/lib/projects"
 import { localeAlternates } from "@/lib/site-url"
@@ -32,7 +32,7 @@ export default function HomePage() {
           </div>
           <div className="hero-person"><Avatar size={44} /><span><strong>Mokhtar Bouchekoua</strong><small>Building across AI, data &amp; software.</small></span></div>
         </div>
-        <HeroVisual />
+        <HeroTwin />
         <ScrollCue />
       </section>
 

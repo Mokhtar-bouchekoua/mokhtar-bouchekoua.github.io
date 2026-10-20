@@ -1,11 +1,12 @@
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowDown, ArrowRight, ArrowUpRight } from "lucide-react"
+import { ArrowDown, ArrowUpRight } from "lucide-react"
 import { SiteHeader } from "@/components/site-header"
 import { links, type Project } from "@/lib/projects"
 import { categoryLabel } from "@/lib/project-translations"
 import { BackToTop } from "@/features/navigation/ui/back-to-top"
 import { ProjectArtwork } from "@/features/projects/ui/project-artwork"
+import { CountUp } from "@/features/metrics/ui/count-up"
 
 export { ProjectArtwork } from "@/features/projects/ui/project-artwork"
 
@@ -59,26 +60,7 @@ export function SectionIntro({ eyebrow, title, description }: {
 }
 
 export function Avatar({ size = 48, locale = "en" }: { size?: number; locale?: "en" | "fr" }) {
-  return <Image src="/mokhtar-bouchekoua-portrait.jpg" alt={locale === "fr" ? "Portrait de Mokhtar Bouchekoua" : "Portrait of Mokhtar Bouchekoua"} width={size} height={size} className="avatar" />
-}
-
-export function HeroVisual({ locale = "en" }: { locale?: "en" | "fr" }) {
-  const french = locale === "fr"
-  return (
-    <div className="hero-visual" aria-label={french ? "Architecture du jumeau numérique : ingestion HTTP et MQTT avec FastAPI, stockage PostgreSQL et TimescaleDB, services IA LightGBM et LangGraph, interface Next.js et Three.js" : "Digital twin architecture: HTTP and MQTT ingestion through FastAPI, PostgreSQL and TimescaleDB storage, LightGBM and LangGraph AI services, and a Next.js with Three.js interface"} role="img">
-      <div className="hero-visual-top"><span>{french ? "ÉTUDE DE CAS · JUMEAU NUMÉRIQUE" : "CASE STUDY · DIGITAL TWIN"}</span><span>I-WAY · 2026</span></div>
-      <div className="hero-visual-body">
-        <div className="architecture-list">
-          <div className="architecture-row"><span>01</span><div><strong>{french ? "Ingérer" : "Ingest"}</strong><small>HTTP · MQTT · FastAPI</small></div><i /></div>
-          <div className="architecture-row"><span>02</span><div><strong>{french ? "Stocker" : "Store"}</strong><small>PostgreSQL · TimescaleDB</small></div><i /></div>
-          <div className="architecture-row"><span>03</span><div><strong>{french ? "Prédire et rechercher" : "Model & retrieve"}</strong><small>LightGBM · LangGraph</small></div><i /></div>
-          <div className="architecture-row"><span>04</span><div><strong>{french ? "Visualiser" : "Present"}</strong><small>Next.js · Three.js</small></div><i /></div>
-        </div>
-        <div className="architecture-stat"><span>{french ? "DONNÉES OBSERVÉES" : "OBSERVED DATA"}</span><strong>470,857</strong><small>{french ? "mesures IoT recueillies sur environ 14,6 mois" : "IoT measurements across approximately 14.6 months"}</small></div>
-      </div>
-      <div className="hero-visual-bottom"><span>{french ? "DES SIGNAUX AUX DÉCISIONS" : "SIGNALS → DECISIONS"}</span><span>↗</span></div>
-    </div>
-  )
+  return <Image src="/mokhtar-bouchekoua-avatar.jpg" alt={locale === "fr" ? "Portrait de Mokhtar Bouchekoua" : "Portrait of Mokhtar Bouchekoua"} width={size} height={size} className="avatar" />
 }
 
 export function ProjectCard({ project, featured = false, locale = "en" }: { project: Project; featured?: boolean; locale?: "en" | "fr" }) {
@@ -96,33 +78,6 @@ export function ProjectCard({ project, featured = false, locale = "en" }: { proj
   )
 }
 
-export function Diagram({ project, locale = "en" }: { project: Project; locale?: "en" | "fr" }) {
-  const steps: Record<Project["visual"], string[]> = locale === "fr" ? {
-    twin: ["Sources IoT", "FastAPI + MQTT", "TimescaleDB + IA", "Interface 3D"],
-    bi: ["Exports ERP", "Validation des données", "Indicateurs financiers", "Assistant LLM"],
-    edge: ["Flux IoT", "TCN causal", "Modèle multitâche", "Cause racine"],
-    alpr: ["Image de plaque", "YOLOv11", "LPRNet + RTL", "RAG avec FAISS"],
-    rag: ["Fiches PDF", "Embeddings 384-d", "pgvector cosinus", "Top 3 passages"],
-  } : {
-    twin: ["IoT sources", "FastAPI + MQTT", "TimescaleDB + AI", "3D interface"],
-    bi: ["ERP exports", "Data validation", "Financial KPIs", "LLM assistant"],
-    edge: ["IoT stream", "Causal TCN", "Multi-task model", "Root cause"],
-    alpr: ["Plate image", "YOLOv11", "LPRNet + RTL", "FAISS RAG"],
-    rag: ["PDF sheets", "384-d embeddings", "pgvector cosine", "Top 3 passages"],
-  }
-
-  return (
-    <ol className="process-diagram" aria-label={locale === "fr" ? "Flux du système" : "System flow"}>
-      {steps[project.visual].map((step, index, all) => (
-        <li className="process-step" key={step}>
-          <strong>{step}</strong>
-          {index < all.length - 1 && <ArrowRight size={18} aria-hidden="true" />}
-        </li>
-      ))}
-    </ol>
-  )
-}
-
 export function FeatureStats({ label, foot, stats }: { label: string; foot: string; stats: { value: string; label: string }[] }) {
   return (
     <div className="feature-number feature-stats">
@@ -133,8 +88,8 @@ export function FeatureStats({ label, foot, stats }: { label: string; foot: stri
   )
 }
 
-export function MetricStrip({ stats }: { stats: { value: string; label: string }[] }) {
-  return <div className="metric-strip">{stats.map((stat) => <div key={stat.label}><strong>{stat.value}</strong><span>{stat.label}</span></div>)}</div>
+export function MetricStrip({ stats, locale = "en" }: { stats: { value: string; label: string }[]; locale?: "en" | "fr" }) {
+  return <div className="metric-strip">{stats.map((stat) => <div key={stat.label}><CountUp value={stat.value} locale={locale} /><span>{stat.label}</span></div>)}</div>
 }
 
 export function ScrollCue({ locale = "en" }: { locale?: "en" | "fr" }) {

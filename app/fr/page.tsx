@@ -8,13 +8,13 @@ import {
   ButtonLink,
   ContactLink,
   FeatureStats,
-  HeroVisual,
   MetricStrip,
   PageFrame,
   ProjectCard,
   ScrollCue,
   SectionIntro,
 } from "@/components/site-shell"
+import { HeroTwin } from "@/features/hero/ui/hero-twin"
 import { availability, projects, skills } from "@/lib/projects"
 import { projectForLocale } from "@/lib/project-translations"
 
@@ -44,14 +44,14 @@ export default async function FrenchHomePage() {
           </div>
           <div className="hero-person"><Avatar size={44} locale="fr" /><span><strong>Mokhtar Bouchekoua</strong><small>{t("building")}</small></span></div>
         </div>
-        <HeroVisual locale="fr" />
+        <HeroTwin locale="fr" />
         <ScrollCue locale="fr" />
       </section>
 
       <section className="proof-band" aria-label="Résultats mesurés des projets sélectionnés">
         <div className="container proof-inner">
           <div className="proof-label">{t("outcomes")}</div>
-          <MetricStrip stats={proofPoints} />
+          <MetricStrip stats={proofPoints} locale="fr" />
         </div>
       </section>
 

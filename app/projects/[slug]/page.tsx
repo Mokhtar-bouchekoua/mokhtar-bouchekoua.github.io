@@ -2,7 +2,8 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react"
-import { Diagram, PageFrame, ProjectArtwork } from "@/components/site-shell"
+import { PageFrame, ProjectArtwork } from "@/components/site-shell"
+import { ArchitectureDiagram } from "@/features/projects/ui/architecture-diagram"
 import { getAdjacentProjects, getProject, projects } from "@/lib/projects"
 import { localeAlternates } from "@/lib/site-url"
 
@@ -55,8 +56,8 @@ export default async function CaseStudyPage({ params }: Props) {
 
         <section className="case-process">
           <div className="container">
-            <div className="case-section-heading"><span className="eyebrow">SYSTEM FLOW</span><h2>From input to outcome.</h2></div>
-            <Diagram project={project} />
+            <div className="case-section-heading"><span className="eyebrow">ARCHITECTURE</span><h2>From input to outcome.</h2></div>
+            <ArchitectureDiagram visual={project.visual} />
           </div>
         </section>
 

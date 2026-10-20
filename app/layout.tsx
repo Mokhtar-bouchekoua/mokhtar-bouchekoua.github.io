@@ -42,7 +42,7 @@ const personJsonLd = {
   sameAs: [links.linkedin, links.github],
 }
 
-export const viewport: Viewport = { themeColor: "#f6f7f5", colorScheme: "light dark" }
+export const viewport: Viewport = { themeColor: "#070b14", colorScheme: "dark light" }
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (

@@ -39,7 +39,7 @@ export function ProjectArtwork({ visual, compact = false, locale = "en" }: {
         fill
         sizes={compact ? "(max-width: 760px) 100vw, 50vw" : "(max-width: 760px) 100vw, 1200px"}
         className="project-art-photo"
-        priority={!compact}
+        preload={!compact}
       />
     </div>
   )

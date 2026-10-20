@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import { getTranslations } from "next-intl/server"
 import { ButtonLink, PageFrame } from "@/components/site-shell"
-import { links, recognition, techGroups } from "@/lib/projects"
+import { availability, links, recognition, techGroups } from "@/lib/projects"
 import { education, experience, languages } from "@/lib/profile"
 import { skillLabel } from "@/lib/project-translations"
 import { localeAlternates } from "@/lib/site-url"
@@ -27,20 +27,20 @@ export default async function FrenchResumePage() {
 
       <div className="resume-content container">
         <aside className="resume-aside">
-          <div><span className="eyebrow">{t("profile")}</span><h2>Mokhtar<br />Bouchekoua</h2><p>Ingénieur IA et Full Stack<br />Sfax, Tunisie</p></div>
+          <div><span className="eyebrow">{t("availability")}</span><p>{availability.fr}</p></div>
           <div><span className="eyebrow">{t("contactLabel")}</span><a href={links.email}>mokhtarbouchekoua@gmail.com</a><a href={links.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href={links.github} target="_blank" rel="noopener noreferrer">GitHub ↗</a></div>
           <div><span className="eyebrow">{t("languages")}</span><p>{languages.fr}</p></div>
         </aside>
 
         <div className="resume-main">
-          <section className="resume-section"><h2 className="eyebrow">{t("experience")}</h2>
+          <section className="resume-section"><h2 className="resume-heading">{t("experience")}</h2>
             {experience.map((item) => <article key={item.title.fr}><time>{item.period.fr}</time><div><h3>{item.title.fr}</h3><strong>{item.place.fr}</strong><p>{item.detail.fr}</p></div></article>)}
           </section>
-          <section className="resume-section"><h2 className="eyebrow">{t("education")}</h2>
+          <section className="resume-section"><h2 className="resume-heading">{t("education")}</h2>
             {education.map((item) => <article key={item.title.fr}><time>{item.period.fr}</time><div><h3>{item.title.fr}</h3><strong>{item.place.fr}</strong></div></article>)}
           </section>
-          <section className="resume-section"><h2 className="eyebrow">{t("focus")}</h2><div className="resume-tech">{techGroups.map((group) => <div key={group.label}><strong>{group.labelFr}</strong><p>{group.items.map((item) => skillLabel(item, "fr")).join(" · ")}</p></div>)}</div></section>
-          <section className="resume-section resume-last"><h2 className="eyebrow">{t("recognition")}</h2><p>{recognition.fr.join(" · ")}</p></section>
+          <section className="resume-section"><h2 className="resume-heading">{t("focus")}</h2><div className="resume-tech">{techGroups.map((group) => <div key={group.label}><h3>{group.labelFr}</h3><ul className="skill-tags">{group.items.map((item) => <li key={item}>{skillLabel(item, "fr")}</li>)}</ul></div>)}</div></section>
+          <section className="resume-section resume-last"><h2 className="resume-heading">{t("recognition")}</h2><p>{recognition.fr.join(" · ")}</p></section>
         </div>
       </div>
     </PageFrame>

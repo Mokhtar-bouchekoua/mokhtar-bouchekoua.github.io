@@ -24,7 +24,7 @@ export default async function FrenchAboutPage() {
 
       <section className="container about-intro">
         <div className="portrait-wrap">
-          <Image src="/mokhtar-bouchekoua-portrait.jpg" alt="Portrait de Mokhtar Bouchekoua" width={1080} height={1080} className="about-portrait" priority />
+          <Image src="/mokhtar-bouchekoua-portrait.jpg" alt="Portrait de Mokhtar Bouchekoua" width={1080} height={1080} className="about-portrait" preload />
         </div>
         <div className="about-intro-copy">
           <span className="eyebrow">{t("short")}</span>

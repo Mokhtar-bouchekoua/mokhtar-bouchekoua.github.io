@@ -26,6 +26,12 @@ export function SiteHeader() {
     ? { projects: "Projets", about: "À propos", resume: "CV", contact: "Contact", main: "Navigation principale", mobile: "Navigation mobile", toggle: "Ouvrir ou fermer le menu", language: "Langue", themeLight: "Activer le mode clair", themeDark: "Activer le mode sombre" }
     : { projects: "Projects", about: "About", resume: "Resume", contact: "Contact", main: "Main navigation", mobile: "Mobile navigation", toggle: "Toggle navigation", language: "Language", themeLight: "Switch to light mode", themeDark: "Switch to dark mode" }
 
+  // Keep the browser UI colour in step with the active theme (the static viewport value is the dark default).
+  useEffect(() => {
+    if (!resolvedTheme) return
+    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", resolvedTheme === "dark" ? "#070b14" : "#f6f7f5")
+  }, [resolvedTheme])
+
   useEffect(() => {
     setMounted(true)
     if (menuRef.current) menuRef.current.open = false
@@ -44,7 +50,7 @@ export function SiteHeader() {
     <header className="site-header">
       <div className="container header-inner">
         <Link href={localizedHref("/")} className="brand" aria-label="Mokhtar Bouchekoua, home">
-          <Image src="/mokhtar-bouchekoua-portrait.jpg" alt="" width={38} height={38} className="brand-photo" />
+          <Image src="/mokhtar-bouchekoua-avatar.jpg" alt="" width={38} height={38} className="brand-photo" preload />
           <span>Mokhtar <strong>Bouchekoua</strong></span>
         </Link>
         <nav className="desktop-nav" aria-label={copy.main}>
