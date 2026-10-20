@@ -18,6 +18,14 @@ const artwork = {
     src: "/projects/alpr.webp",
     alt: { en: "Concept illustration of privacy-safe computer vision detecting a blank vehicle plate", fr: "Illustration conceptuelle d’une vision par ordinateur détectant une plaque vierge, sans donnée personnelle" },
   },
+  shop: {
+    src: "/projects/shop.webp",
+    alt: { en: "Concept illustration of an online storefront beside a sales dashboard", fr: "Illustration conceptuelle d’une boutique en ligne à côté d’un tableau de bord des ventes" },
+  },
+  drone: {
+    src: "/projects/drone.webp",
+    alt: { en: "Concept illustration of a spraying drone above a field, linked to a ground station", fr: "Illustration conceptuelle d’un drone de pulvérisation au-dessus d’un champ, relié à une station de sol" },
+  },
   rag: {
     src: "/projects/semantia.webp",
     alt: { en: "Concept illustration of document passages ranked by semantic similarity", fr: "Illustration conceptuelle de passages de documents classés par similarité sémantique" },

@@ -133,6 +133,60 @@ const frenchProjectCopy: Record<string, Partial<Project>> = {
       { value: "FR / EN", label: "bilingue", context: "questions et scoring en français et en anglais" },
     ],
   },
+  "allo-fruit-ecommerce": {
+    title: "Allo Fruit — Plateforme e-commerce",
+    shortTitle: "E-commerce Allo Fruit",
+    type: "Stage · Flash Marketing Digital",
+    timeframe: "Juin — juil. 2024",
+    role: "Stagiaire développeur Full Stack · en autonomie",
+    summary: "Une plateforme e-commerce développée en autonomie de bout en bout : API REST, front-end Angular, back-office avec gestion des rôles et tableau de bord des ventes.",
+    overview: "Pendant mon stage chez Flash Marketing Digital, j’ai développé en autonomie la plateforme e-commerce Allo Fruit avec Laravel, Angular et MySQL, de l’API et de la base de données jusqu’au front-end client et aux outils d’administration.",
+    contribution: [
+      "Conception de l’API REST Laravel.",
+      "Développement du front-end Angular.",
+      "Mise en place d’un back-office d’administration avec gestion des rôles.",
+      "Conception de la base MySQL et du tableau de bord des ventes.",
+    ],
+    implementation: [
+      "Le front-end Angular communique avec l’API REST Laravel.",
+      "Laravel stocke les données de la plateforme dans MySQL.",
+      "Le back-office attribue à chaque rôle ses propres fonctionnalités.",
+      "Un tableau de bord donne au back-office une vue d’ensemble des ventes.",
+    ],
+    results: [
+      { value: "5", label: "composants", context: "API REST, front-end, back-office, base de données et tableau de bord des ventes" },
+      { value: "Solo", label: "réalisation", context: "développée en autonomie pendant le stage" },
+      { value: "Rôles", label: "back-office", context: "administration avec gestion des rôles" },
+      { value: "3", label: "technologies clés", context: "Laravel, Angular et MySQL" },
+    ],
+  },
+  "smart-agricultural-drone": {
+    title: "Drone agricole intelligent — Pulvérisation ciblée",
+    shortTitle: "Drone agricole intelligent",
+    type: "PFE de licence · ISGI Sfax",
+    timeframe: "Févr. — juin 2023",
+    role: "Développement IoT, mobile et contrôle de vol",
+    summary: "Un système de pulvérisation ciblée combinant station de sol IoT, application mobile et drone. Prix du meilleur projet de fin d’études.",
+    overview: "Conception d’un système de pulvérisation ciblée réunissant une station de sol IoT qui mesure le sol, une application Android et un drone. Le projet a reçu le prix du meilleur PFE à l’ISGI Sfax.",
+    contribution: [
+      "Conception d’une station de sol ESP32 avec capteur NPK 7-en-1, MAX485/RS485 et Modbus RTU pour mesurer 7 paramètres du sol.",
+      "Développement de l’application Android en Java/XML, avec transmission des mesures vers Firebase via Wi-Fi.",
+      "Configuration d’ArduPilot sur le drone.",
+      "Validation des réglages du contrôle de vol par des tests en vol.",
+    ],
+    implementation: [
+      "L’ESP32 lit le capteur NPK 7-en-1 via RS485 (MAX485) en Modbus RTU.",
+      "La station de sol mesure 7 paramètres du sol.",
+      "Les mesures sont transmises via Wi-Fi vers Firebase et exploitées par l’application Android.",
+      "Le contrôleur de vol du drone fonctionne sous ArduPilot, avec des réglages validés en vol.",
+    ],
+    results: [
+      { value: "7", label: "paramètres du sol", context: "mesurés par la station de sol ESP32" },
+      { value: "Meilleur", label: "PFE", context: "prix, ISGI Sfax, 2023" },
+      { value: "Modbus", label: "RTU sur RS485", context: "liaison avec le capteur NPK 7-en-1" },
+      { value: "Vol", label: "testé", context: "réglages ArduPilot validés en vol" },
+    ],
+  },
 }
 
 export function projectForLocale(project: Project, locale: "en" | "fr"): Project {
@@ -158,6 +212,7 @@ export function categoryLabel(category: Project["category"] | "All", locale: "en
     "Generative AI": "IA générative",
     "Computer Vision": "Vision par ordinateur",
     "Full Stack": "Full Stack",
+    "IoT & Embedded": "IoT et embarqué",
     All: "Tous",
   }
   return labels[category]

@@ -86,4 +86,34 @@ export const architectures: Record<ProjectVisual, ArchitectureStage[]> = {
       { id: "ui", name: "Search interface", tech: "React 19 · Vite", detail: { en: "Bilingual questions in French or English.", fr: "Questions bilingues en français ou en anglais." } },
     ] },
   ],
+  shop: [
+    { label: { en: "Front end", fr: "Front-end" }, nodes: [
+      { id: "web", name: "Storefront", tech: "Angular", detail: { en: "Angular front end of the platform.", fr: "Front-end Angular de la plateforme." } },
+    ] },
+    { label: { en: "API", fr: "API" }, nodes: [
+      { id: "api", name: "REST API", tech: "Laravel", detail: { en: "Laravel REST API serving the front end and the back office.", fr: "API REST Laravel qui sert le front-end et le back-office." } },
+    ] },
+    { label: { en: "Data", fr: "Données" }, nodes: [
+      { id: "db", name: "Data layer", tech: "MySQL", detail: { en: "MySQL data layer of the platform.", fr: "Base de données MySQL de la plateforme." } },
+    ] },
+    { label: { en: "Administration", fr: "Administration" }, nodes: [
+      { id: "admin", name: "Back office", tech: "Role-based access", detail: { en: "Admin back office with features assigned by role.", fr: "Back-office d’administration avec fonctionnalités attribuées par rôle." } },
+      { id: "sales", name: "Sales dashboard", tech: "Reporting", detail: { en: "Overview of sales for the back office.", fr: "Vue d’ensemble des ventes pour le back-office." } },
+    ] },
+  ],
+  drone: [
+    { label: { en: "Measure", fr: "Mesure" }, nodes: [
+      { id: "npk", name: "Soil sensor", tech: "7-in-1 NPK", detail: { en: "Measures 7 soil parameters.", fr: "Mesure 7 paramètres du sol." } },
+    ] },
+    { label: { en: "Acquire", fr: "Acquisition" }, nodes: [
+      { id: "esp32", name: "Ground station", tech: "ESP32 · MAX485 · Modbus RTU", detail: { en: "ESP32 reading the sensor over RS485 with Modbus RTU.", fr: "ESP32 qui lit le capteur via RS485 en Modbus RTU." } },
+    ] },
+    { label: { en: "Sync", fr: "Synchronisation" }, nodes: [
+      { id: "firebase", name: "Cloud database", tech: "Firebase · Wi-Fi", detail: { en: "Measurements transmitted over Wi-Fi to Firebase.", fr: "Mesures transmises via Wi-Fi vers Firebase." } },
+      { id: "android", name: "Mobile app", tech: "Android · Java / XML", detail: { en: "Android application developed in Java/XML.", fr: "Application Android développée en Java/XML." } },
+    ] },
+    { label: { en: "Fly", fr: "Vol" }, nodes: [
+      { id: "drone", name: "Spraying drone", tech: "ArduPilot", detail: { en: "Flight controller configured with ArduPilot and validated in flight tests.", fr: "Contrôleur de vol configuré sous ArduPilot et validé par des tests en vol." } },
+    ] },
+  ],
 }

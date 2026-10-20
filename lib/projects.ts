@@ -1,5 +1,5 @@
-export type ProjectCategory = "AI/ML" | "Generative AI" | "Computer Vision" | "Full Stack"
-export type ProjectVisual = "twin" | "bi" | "edge" | "alpr" | "rag"
+export type ProjectCategory = "AI/ML" | "Generative AI" | "Computer Vision" | "Full Stack" | "IoT & Embedded"
+export type ProjectVisual = "twin" | "bi" | "edge" | "alpr" | "rag" | "shop" | "drone"
 
 export type Project = {
   slug: string
@@ -188,9 +188,75 @@ export const projects: Project[] = [
     visual: "rag",
     repositoryUrl: "https://github.com/Mokhtar-bouchekoua/RAG_A.T.M",
   },
+  {
+    slug: "allo-fruit-ecommerce",
+    number: "06",
+    title: "Allo Fruit — E-commerce Platform",
+    shortTitle: "Allo Fruit E-commerce",
+    category: "Full Stack",
+    filters: ["Full Stack"],
+    type: "Internship · Flash Marketing Digital",
+    timeframe: "Jun–Jul 2024",
+    role: "Full Stack Developer Intern · built independently",
+    summary: "An e-commerce platform developed independently end to end: REST API, Angular front end, role-based back office and sales dashboard.",
+    overview: "During my internship at Flash Marketing Digital, I independently developed the Allo Fruit e-commerce platform with Laravel, Angular and MySQL, from the API and data layer to the customer-facing front end and the administration tools.",
+    contribution: [
+      "Designed the Laravel REST API.",
+      "Built the Angular front end.",
+      "Implemented a role-based admin back office.",
+      "Designed the MySQL data layer and the sales dashboard.",
+    ],
+    implementation: [
+      "The Angular front end communicates with the Laravel REST API.",
+      "Laravel stores the platform data in MySQL.",
+      "The admin back office gives each role its own set of features.",
+      "A sales dashboard gives the back office an overview of sales.",
+    ],
+    results: [
+      { value: "5", label: "components", context: "REST API, front end, back office, data layer and sales dashboard" },
+      { value: "Solo", label: "delivery", context: "developed independently during the internship" },
+      { value: "Roles", label: "back office", context: "role-based administration" },
+      { value: "3", label: "core technologies", context: "Laravel, Angular and MySQL" },
+    ],
+    stack: ["Laravel", "PHP", "REST API", "Angular", "TypeScript", "MySQL"],
+    visual: "shop",
+  },
+  {
+    slug: "smart-agricultural-drone",
+    number: "07",
+    title: "Smart Agricultural Drone — Targeted Spraying System",
+    shortTitle: "Smart Agricultural Drone",
+    category: "IoT & Embedded",
+    filters: ["IoT & Embedded"],
+    type: "Bachelor’s final-year project · ISGI Sfax",
+    timeframe: "Feb–Jun 2023",
+    role: "IoT, mobile and flight-control development",
+    summary: "A targeted spraying system combining an IoT ground station, a mobile application and a drone. Best Final-Year Project Award.",
+    overview: "Designed a targeted spraying system that brings together an IoT ground station measuring the soil, an Android application and a drone. The project received the Best Final-Year Project Award at ISGI Sfax.",
+    contribution: [
+      "Designed an ESP32-based ground station with a 7-in-1 NPK sensor, MAX485/RS485 and Modbus RTU to measure 7 soil parameters.",
+      "Developed the Android application in Java/XML, with Wi-Fi transmission of the measurements to Firebase.",
+      "Configured ArduPilot on the drone.",
+      "Validated the flight-control settings through flight tests.",
+    ],
+    implementation: [
+      "The ESP32 reads the 7-in-1 NPK sensor over RS485 (MAX485) using Modbus RTU.",
+      "The ground station measures 7 soil parameters.",
+      "Measurements are transmitted over Wi-Fi to Firebase and used by the Android application.",
+      "The drone flight controller runs ArduPilot, with settings validated in flight tests.",
+    ],
+    results: [
+      { value: "7", label: "soil parameters", context: "measured by the ESP32 ground station" },
+      { value: "Best", label: "final-year project", context: "award, ISGI Sfax, 2023" },
+      { value: "Modbus", label: "RTU over RS485", context: "7-in-1 NPK sensor link" },
+      { value: "Flight", label: "tested", context: "ArduPilot settings validated in flight" },
+    ],
+    stack: ["ESP32", "7-in-1 NPK sensor", "MAX485 / RS485", "Modbus RTU", "Android", "Java / XML", "Firebase", "ArduPilot"],
+    visual: "drone",
+  },
 ]
 
-export const categories: (ProjectCategory | "All")[] = ["All", "AI/ML", "Generative AI", "Computer Vision", "Full Stack"]
+export const categories: (ProjectCategory | "All")[] = ["All", "AI/ML", "Generative AI", "Computer Vision", "Full Stack", "IoT & Embedded"]
 
 export function getProject(slug: string) {
   return projects.find((project) => project.slug === slug)
