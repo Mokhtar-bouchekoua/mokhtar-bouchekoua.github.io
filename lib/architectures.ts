@@ -35,7 +35,7 @@ export const architectures: Record<ProjectVisual, ArchitectureStage[]> = {
     { label: { en: "Analyse", fr: "Analyse" }, nodes: [
       { id: "kpi", name: "Financial KPIs", tech: "5 KPIs · health score", detail: { en: "Five financial KPIs and a financial-health score.", fr: "Cinq indicateurs financiers et un score de santé financière." } },
       { id: "whatif", name: "What-If simulation", tech: "Scenarios", detail: { en: "Compares financial scenarios.", fr: "Compare différents scénarios financiers." } },
-      { id: "llm", name: "AI assistant", tech: "Ollama · Groq", detail: { en: "Conversational analysis through Context Injection.", fr: "Analyse conversationnelle par injection de contexte." } },
+      { id: "llm", name: "AI assistant", tech: "Ollama · Groq · LangChain", detail: { en: "Conversational analysis through Context Injection.", fr: "Analyse conversationnelle par injection de contexte." } },
     ] },
     { label: { en: "Present", fr: "Interface" }, nodes: [
       { id: "app", name: "BI application", tech: "Streamlit · Plotly", detail: { en: "Interactive dashboards for financial performance.", fr: "Tableaux de bord interactifs de la performance financière." } },

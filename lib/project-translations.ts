@@ -38,7 +38,7 @@ const frenchProjectCopy: Record<string, Partial<Project>> = {
     overview: "Le projet analyse les données extraites de l’ERP Paramedics. Une application Streamlit et Plotly présente des indicateurs financiers, un score de santé financière, une simulation What-If et un assistant IA pour l’analyse métier contextualisée.",
     contribution: [
       "Nettoyage et validation de 22 387 enregistrements ERP provenant de 20 fichiers CSV.",
-      "Intégration des modèles Ollama et Groq avec injection de contexte pour les requêtes et recommandations métier.",
+      "Intégration d’un LLM via Ollama/Groq, LangChain et l’injection de contexte pour les requêtes et recommandations métier.",
       "Développement de l’application BI avec Streamlit et Plotly.",
       "Mise en place de cinq indicateurs financiers, d’un score de santé, d’une simulation What-If et d’un assistant IA.",
     ],

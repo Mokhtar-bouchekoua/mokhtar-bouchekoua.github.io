@@ -29,8 +29,8 @@ export const experience: TimelineEntry[] = [
   },
   {
     period: { en: "Jan – Jun 2025", fr: "Janv. – juin 2025" },
-    title: { en: "Edge AI Research Contribution", fr: "Contribution à un projet de recherche en Edge AI" },
-    place: { en: "IIT Sfax", fr: "IIT Sfax" },
+    title: { en: "Research Project — Edge AI & Anomaly Detection", fr: "Projet de recherche — Edge AI et détection d’anomalies" },
+    place: { en: "International Institute of Technology (IIT) Sfax", fr: "Institut International de Technologie (IIT) Sfax" },
     detail: {
       en: "Technical contribution to a broader academic research project under academic supervision and in collaboration with a research team in Toulouse, France, focused on anomaly detection, anomaly-type classification and root cause analysis in multivariate IoT data.",
       fr: "Contribution technique à un projet de recherche académique plus large, mené sous supervision universitaire et en collaboration avec une équipe de recherche à Toulouse, en France. Le projet porte sur la détection d’anomalies, la classification de leur type et l’analyse des causes racines dans des données IoT multivariées.",
@@ -41,17 +41,17 @@ export const experience: TimelineEntry[] = [
     title: { en: "Full Stack Developer Intern", fr: "Stagiaire développeur Full Stack" },
     place: { en: "Flash Marketing Digital", fr: "Flash Marketing Digital" },
     detail: {
-      en: "Developed the Allo Fruit e-commerce platform with Laravel, React and MySQL.",
-      fr: "Développement de la plateforme e-commerce Allo Fruit avec Laravel, React et MySQL.",
+      en: "Independently developed the Allo Fruit e-commerce platform: Laravel REST API, Angular front end, role-based admin back office, MySQL data layer and sales dashboard.",
+      fr: "Développement en autonomie de la plateforme e-commerce Allo Fruit : API REST Laravel, front-end Angular, back-office avec gestion des rôles, base MySQL et tableau de bord des ventes.",
     },
   },
   {
     period: { en: "Feb – Jun 2023", fr: "Févr. – juin 2023" },
-    title: { en: "Smart Agricultural Drone", fr: "Drone agricole intelligent" },
-    place: { en: "ISGI Sfax · Final-year project", fr: "ISGI Sfax · Projet de fin d’études" },
+    title: { en: "Smart Agricultural Drone — Best Final-Year Project Award", fr: "Drone agricole intelligent — Prix du meilleur PFE" },
+    place: { en: "ISGI Sfax · Bachelor’s final-year project", fr: "ISGI Sfax · PFE de licence" },
     detail: {
-      en: "Drone with a 7-in-1 NPK sensor and a Flutter app for soil analysis, measurements and alerts.",
-      fr: "Drone équipé d’un capteur NPK 7-en-1 et d’une application Flutter pour l’analyse des sols, les mesures et les alertes.",
+      en: "Targeted spraying system combining an ESP32 IoT ground station (7-in-1 NPK sensor, RS485/Modbus RTU, 7 soil parameters), an Android app in Java sending measurements to Firebase, and a drone configured with ArduPilot and validated in flight tests.",
+      fr: "Système de pulvérisation ciblée combinant une station de sol IoT ESP32 (capteur NPK 7-en-1, RS485/Modbus RTU, 7 paramètres du sol), une application Android en Java envoyant les mesures vers Firebase, et un drone configuré sous ArduPilot et validé par des tests en vol.",
     },
   },
 ]
@@ -64,7 +64,7 @@ export const education: Omit<TimelineEntry, "detail">[] = [
   },
   {
     period: { en: "2023", fr: "2023" },
-    title: { en: "Bachelor’s Degree in Electronics, Electrical Engineering and Automation", fr: "Licence en électronique, génie électrique et automatisme" },
+    title: { en: "Bachelor’s Degree in Electronics, Electrical Engineering and Automation — Industrial Computing Track", fr: "Licence en électronique, électrotechnique et automatique — parcours Informatique industrielle" },
     place: { en: "Higher Institute of Industrial Management (ISGI) · Sfax", fr: "Institut Supérieur de Gestion Industrielle (ISGI) · Sfax" },
   },
 ]

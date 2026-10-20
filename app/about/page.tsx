@@ -45,7 +45,7 @@ export default function AboutPage() {
 
       <section className="container about-more">
         <div><span className="eyebrow">LANGUAGES</span><p>{languages.en}</p></div>
-        <div><span className="eyebrow">COMMUNITY</span><p>IEEE member</p></div>
+        <div><span className="eyebrow">COMMUNITY</span><p>IEEE member (ISGIS &amp; IIT)</p></div>
         <div><span className="eyebrow">BASED IN</span><p>Sfax, Tunisia · open to remote</p></div>
       </section>
 

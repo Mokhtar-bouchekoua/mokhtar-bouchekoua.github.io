@@ -70,7 +70,7 @@ export const projects: Project[] = [
     overview: "The work analyzed data extracted from the Paramedics ERP. A Streamlit and Plotly application presents financial KPIs, a financial-health score, What-If simulation, and an AI assistant for contextual business analysis.",
     contribution: [
       "Cleaned and validated 22,387 ERP records from 20 CSV files.",
-      "Integrated Ollama and Groq LLMs using Context Injection for data queries and recommendations.",
+      "Integrated an LLM through Ollama/Groq, LangChain and Context Injection for data queries and recommendations.",
       "Built the Streamlit and Plotly BI application.",
       "Implemented five financial KPIs, a financial-health score, What-If simulation, and an AI assistant.",
     ],
@@ -86,7 +86,7 @@ export const projects: Project[] = [
       { value: "99.6%", label: "reduction", context: "in detected data-quality violations" },
       { value: "5", label: "financial KPIs", context: "alongside a health score and What-If simulation" },
     ],
-    stack: ["Python", "Pandas", "Streamlit", "Plotly", "Ollama", "Groq", "Context Injection"],
+    stack: ["Python", "Pandas", "Streamlit", "Plotly", "Ollama", "Groq", "LangChain", "Context Injection"],
     visual: "bi",
     repositoryUrl: "https://github.com/Mokhtar-bouchekoua/paramedics-bi-dashboard",
   },
@@ -210,7 +210,7 @@ export const techGroups = [
   { label: "Backend & data", labelFr: "Backend et données", items: ["FastAPI", "SQL", "PostgreSQL", "TimescaleDB", "MQTT", "Edge Computing"] },
   { label: "Frontend & visualization", labelFr: "Frontend et visualisation", items: ["TypeScript", "Next.js", "React", "Three.js", "Streamlit", "Plotly"] },
   { label: "Delivery & monitoring", labelFr: "Déploiement et observabilité", items: ["Docker", "Git", "CI/CD", "Model monitoring", "LLM tracing"] },
-  { label: "Also used", labelFr: "Également utilisé", items: ["C", "C++", "C#", "Java", "Laravel", "Angular", "Flutter", "Firebase", "MySQL", "SQL Server", "GitLab", "Jenkins"] },
+  { label: "Also used", labelFr: "Également utilisé", items: ["C/C++", "C#", "Java", "Android (Java)", "Laravel", "Angular", "ESP32", "Modbus RTU", "ChromaDB", "Firebase", "MySQL", "SQL Server", "GitLab", "Jenkins"] },
 ] as const
 
 export const skills = ["Python", "FastAPI", "PyTorch", "LightGBM", "LangGraph", "Next.js", "React", "TimescaleDB", "MQTT", "Three.js", "Docker", "Langfuse"]
@@ -234,8 +234,8 @@ export const availability = {
 }
 
 export const recognition = {
-  en: ["Best Final-Year Project Award, 2023", "IEEE member", "CCNA"],
-  fr: ["Prix du meilleur projet de fin d’études, 2023", "Membre de l’IEEE", "CCNA"],
+  en: ["Best Final-Year Project Award, 2023", "IEEE member (ISGIS & IIT)", "Cisco CCNA: Introduction to Networks (ITN)", "AWS Academy Graduate — Cloud Foundations"],
+  fr: ["Prix du meilleur projet de fin d’études, 2023", "Membre IEEE (ISGIS et IIT)", "Cisco CCNA : Introduction to Networks (ITN)", "AWS Academy Graduate — Cloud Foundations"],
 }
 
 export const proofPoints = [

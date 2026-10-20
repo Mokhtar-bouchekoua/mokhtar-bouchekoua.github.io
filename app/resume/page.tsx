@@ -38,7 +38,7 @@ export default function ResumePage() {
             {education.map((item) => <article key={item.title.en}><time>{item.period.en}</time><div><h3>{item.title.en}</h3><strong>{item.place.en}</strong></div></article>)}
           </section>
           <section className="resume-section"><h2 className="resume-heading">Technical skills</h2><div className="resume-tech">{techGroups.map((group) => <div key={group.label}><h3>{group.label}</h3><ul className="skill-tags">{group.items.map((item) => <li key={item}>{item}</li>)}</ul></div>)}</div></section>
-          <section className="resume-section resume-last"><h2 className="resume-heading">Recognition &amp; certification</h2><p>{recognition.en.join(" · ")}</p></section>
+          <section className="resume-section resume-last"><h2 className="resume-heading">Recognition &amp; certifications</h2><p>{recognition.en.join(" · ")}</p></section>
         </div>
       </div>
     </PageFrame>

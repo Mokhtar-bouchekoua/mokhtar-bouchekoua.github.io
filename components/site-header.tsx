@@ -7,6 +7,7 @@ import { usePathname, useRouter } from "next/navigation"
 import { useTheme } from "next-themes"
 import { ArrowUpRight, Menu, Moon, Sun, X } from "lucide-react"
 import { LocaleSwitcher } from "@/features/navigation/ui/locale-switcher"
+import { restoreReadingPosition, saveReadingPosition } from "@/features/navigation/lib/reading-position"
 
 const navigation = [
   { href: "/projects", key: "projects" },
@@ -35,13 +36,16 @@ export function SiteHeader() {
   useEffect(() => {
     setMounted(true)
     if (menuRef.current) menuRef.current.open = false
+    // After a language switch, scroll back to the section that was being read (layout is committed here).
+    restoreReadingPosition(pathname)
   }, [pathname])
 
   const localizedHref = (href: string) => locale === "fr" ? `/fr${href === "/" ? "" : href}` : href
   const isActive = (href: string) => localPath === href || (href === "/projects" && localPath.startsWith("/projects/"))
   const chooseLocale = (nextLocale: "en" | "fr") => {
     const nextPath = nextLocale === "fr" ? `/fr${localPath === "/" ? "" : localPath}` : localPath
-    router.push(nextPath)
+    saveReadingPosition(nextPath)
+    router.push(nextPath, { scroll: false })
   }
   const themeIsDark = mounted && resolvedTheme === "dark"
   const toggleTheme = () => setTheme(themeIsDark ? "light" : "dark")
