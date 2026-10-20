@@ -1,12 +1,13 @@
 import type { Metadata } from "next"
+import { localeAlternates } from "@/lib/site-url"
 import { getTranslations } from "next-intl/server"
 import { ArrowUpRight, Mail } from "lucide-react"
 import { Avatar, PageFrame } from "@/components/site-shell"
-import { links, person } from "@/lib/projects"
+import { availability, links, person } from "@/lib/projects"
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations({ locale: "fr", namespace: "Contact" })
-  return { title: t("metaTitle"), description: t("metaDescription"), alternates: { canonical: "/fr/contact/" } }
+  return { title: t("metaTitle"), description: t("metaDescription"), alternates: localeAlternates("/contact/", "fr") }
 }
 
 export default async function FrenchContactPage() {
@@ -17,6 +18,7 @@ export default async function FrenchContactPage() {
         <div className="contact-topline"><span className="eyebrow">{t("eyebrow")}</span><span>{t("location")}</span></div>
         <h1>{t("title")} <em>{t("titleAccent")}</em></h1>
         <p>{t("intro")}</p>
+        <p className="availability-note">{availability.fr}</p>
         <a className="email-link" href={links.email}><Mail size={26} aria-hidden="true" /><span>{person.email}</span><ArrowUpRight size={28} aria-hidden="true" /></a>
         <div className="contact-bottom">
           <div className="contact-identity"><Avatar size={54} locale="fr" /><span><strong>Mokhtar Bouchekoua</strong><small>Ingénieur IA et Full Stack</small></span></div>

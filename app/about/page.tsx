@@ -3,11 +3,13 @@ import Image from "next/image"
 import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
 import { PageFrame, SectionIntro } from "@/components/site-shell"
-import { techGroups } from "@/lib/projects"
+import { recognition, techGroups } from "@/lib/projects"
+import { localeAlternates } from "@/lib/site-url"
 
 export const metadata: Metadata = {
   title: "About",
   description: "Experience, education and technical approach of Mokhtar Bouchekoua, AI & Full Stack Engineer.",
+  alternates: localeAlternates("/about/", "en"),
 }
 
 const experience = [
@@ -65,8 +67,8 @@ export default function AboutPage() {
 
       <section className="container about-more">
         <div><span className="eyebrow">LANGUAGES</span><p>Arabic · French · English</p></div>
-        <div><span className="eyebrow">CERTIFICATIONS</span><p>Arduino (ISGIS) · Python Certificate · CCNA · AWS Badge</p></div>
-        <div><span className="eyebrow">RECOGNITION</span><p>Best Final-Year Project Award, 2023<br />IEEE member</p></div>
+        <div><span className="eyebrow">CERTIFICATION</span><p>{recognition.en[2]}</p></div>
+        <div><span className="eyebrow">RECOGNITION</span><p>{recognition.en[0]}<br />{recognition.en[1]}</p></div>
       </section>
       <div className="container about-next"><span className="eyebrow">NEXT / LET&apos;S CONNECT</span><Link href="/contact">Have a project or role in mind? <ArrowUpRight size={26} aria-hidden="true" /></Link></div>
     </PageFrame>

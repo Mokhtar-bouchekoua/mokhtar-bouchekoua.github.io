@@ -1,14 +1,13 @@
 import type { Metadata } from "next"
+import { localeAlternates } from "@/lib/site-url"
 import { getTranslations } from "next-intl/server"
 import { ButtonLink, PageFrame } from "@/components/site-shell"
-import { links, techGroups } from "@/lib/projects"
+import { links, recognition, techGroups } from "@/lib/projects"
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations({ locale: "fr", namespace: "Resume" })
-  return { title: t("metaTitle"), description: t("metaDescription"), alternates: { canonical: "/fr/resume/" } }
+  return { title: t("metaTitle"), description: t("metaDescription"), alternates: localeAlternates("/resume/", "fr") }
 }
-
-const groupLabels = ["Programmation et backend", "IA et apprentissage automatique", "IA générative et LLMOps", "Frontend et visualisation", "Données, recherche et IoT", "Déploiement et observabilité"]
 
 export default async function FrenchResumePage() {
   const t = await getTranslations({ locale: "fr", namespace: "Resume" })
@@ -44,8 +43,8 @@ export default async function FrenchResumePage() {
             <article><time>2023</time><div><h3>Licence en électronique, génie électrique et automatisme</h3><strong>Institut Supérieur de Gestion Industrielle · Sfax</strong></div></article>
           </section>
 
-          <section className="resume-section"><span className="eyebrow">{t("focus")}</span><div className="resume-tech">{techGroups.map((group, index) => <div key={group.label}><strong>{groupLabels[index]}</strong><p>{group.items.join(" · ")}</p></div>)}</div></section>
-          <section className="resume-section resume-last"><span className="eyebrow">{t("recognition")}</span><p>{t("award")}</p></section>
+          <section className="resume-section"><span className="eyebrow">{t("focus")}</span><div className="resume-tech">{techGroups.map((group) => <div key={group.label}><strong>{group.labelFr}</strong><p>{group.items.join(" · ")}</p></div>)}</div></section>
+          <section className="resume-section resume-last"><span className="eyebrow">{t("recognition")}</span><p>{recognition.fr.join(" · ")}</p></section>
         </div>
       </div>
     </PageFrame>

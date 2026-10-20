@@ -1,14 +1,15 @@
 import type { Metadata } from "next"
+import { localeAlternates } from "@/lib/site-url"
 import Image from "next/image"
 import Link from "next/link"
 import { getTranslations } from "next-intl/server"
 import { ArrowUpRight } from "lucide-react"
 import { PageFrame, SectionIntro } from "@/components/site-shell"
-import { techGroups } from "@/lib/projects"
+import { recognition, techGroups } from "@/lib/projects"
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations({ locale: "fr", namespace: "About" })
-  return { title: t("metaTitle"), description: t("metaDescription"), alternates: { canonical: "/fr/about/" } }
+  return { title: t("metaTitle"), description: t("metaDescription"), alternates: localeAlternates("/about/", "fr") }
 }
 
 const experience = [
@@ -19,14 +20,6 @@ const experience = [
   { date: "FÉV — JUIN 2023", title: "Drone agricole intelligent", place: "ISGI Sfax · Projet de fin d’études", detail: "Drone équipé d’un capteur NPK 7-en-1 et d’une application Flutter pour l’analyse des sols, les mesures et les alertes." },
 ]
 
-const groupLabels = [
-  "Programmation et backend",
-  "IA et apprentissage automatique",
-  "IA générative et LLMOps",
-  "Frontend et visualisation",
-  "Données, recherche et IoT",
-  "Déploiement et observabilité",
-]
 const itemLabels: Record<string, string> = {
   "Anomaly detection": "Détection d’anomalies",
   Forecasting: "Prévision",
@@ -78,13 +71,13 @@ export default async function FrenchAboutPage() {
 
       <section className="container about-toolkit">
         <SectionIntro eyebrow={t("toolkitEyebrow")} title={t("toolkitTitle")} />
-        <div className="tech-groups">{techGroups.map((group, index) => <div key={group.label}><h3>{groupLabels[index]}</h3><p>{group.items.map((item) => itemLabels[item] ?? item).join(" · ")}</p></div>)}</div>
+        <div className="tech-groups">{techGroups.map((group) => <div key={group.label}><h3>{group.labelFr}</h3><p>{group.items.map((item) => itemLabels[item] ?? item).join(" · ")}</p></div>)}</div>
       </section>
 
       <section className="container about-more">
         <div><span className="eyebrow">{t("languages")}</span><p>Arabe · Français · Anglais</p></div>
-        <div><span className="eyebrow">{t("certifications")}</span><p>Arduino (ISGIS) · Certificat Python · CCNA · Badge AWS</p></div>
-        <div><span className="eyebrow">{t("recognition")}</span><p>{t("award")}<br />{t("ieee")}</p></div>
+        <div><span className="eyebrow">CERTIFICATION</span><p>{recognition.fr[2]}</p></div>
+        <div><span className="eyebrow">{t("recognition")}</span><p>{recognition.fr[0]}<br />{recognition.fr[1]}</p></div>
       </section>
       <div className="container about-next"><span className="eyebrow">{t("next")}</span><Link href="/fr/contact">{t("connect")} <ArrowUpRight size={26} aria-hidden="true" /></Link></div>
     </PageFrame>

@@ -106,6 +106,33 @@ const frenchProjectCopy: Record<string, Partial<Project>> = {
       { value: "88 % / 0,72", label: "Hit Rate / MRR", context: "évaluation RAG" },
     ],
   },
+  "semantia-rag-search": {
+    title: "SémantIA — Recherche sémantique sur des fiches techniques d’ingrédients",
+    shortTitle: "Recherche RAG SémantIA",
+    type: "Hackathon · AI Night Challenge",
+    timeframe: "Févr. 2026",
+    role: "Pipeline RAG et développement Full Stack",
+    summary: "Un moteur de recherche sémantique bilingue sur des fiches techniques d’ingrédients, réalisé pour A.M.T (groupe ROSE BLANCHE) lors du challenge AI Night.",
+    overview: "Les spécialistes de la boulangerie ont besoin de réponses précises issues des fiches techniques d’enzymes, d’agents oxydants et d’additifs. SémantIA ingère les fiches PDF, les vectorise dans PostgreSQL avec pgvector et renvoie les trois passages les plus pertinents pour une question posée en français ou en anglais.",
+    contribution: [
+      "Création du pipeline d’ingestion : lecture des PDF, découpage, embeddings all-MiniLM-L6-v2 et stockage dans PostgreSQL 16 avec pgvector.",
+      "Structuration du backend FastAPI selon une architecture hexagonale orientée domaine (domaine, ports, adaptateurs, application).",
+      "Mise en place d’un module d’évaluation IR hors ligne (Hit@K, MRR, nDCG) accessible par l’API et en ligne de commande.",
+      "Développement de l’interface React 19 / Vite et conteneurisation de la base avec Docker Compose.",
+    ],
+    implementation: [
+      "Les fiches techniques PDF sont découpées en fragments puis vectorisées avec all-MiniLM-L6-v2 (384 dimensions).",
+      "Les vecteurs sont stockés dans PostgreSQL 16 avec pgvector et classés par similarité cosinus (Top K = 3).",
+      "FastAPI expose la recherche, l’état du service, les statistiques du corpus et l’évaluation.",
+      "Les requêtes et le scoring fonctionnent en français comme en anglais.",
+    ],
+    results: [
+      { value: "384", label: "dimensions", context: "embeddings de phrases all-MiniLM-L6-v2" },
+      { value: "Top 3", label: "passages", context: "similarité cosinus via pgvector" },
+      { value: "4", label: "endpoints d’API", context: "recherche, état, statistiques et évaluation hors ligne" },
+      { value: "FR / EN", label: "bilingue", context: "questions et scoring en français et en anglais" },
+    ],
+  },
 }
 
 export function projectForLocale(project: Project, locale: "en" | "fr"): Project {

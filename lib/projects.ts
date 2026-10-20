@@ -1,5 +1,5 @@
 export type ProjectCategory = "AI/ML" | "Generative AI" | "Computer Vision" | "Full Stack"
-export type ProjectVisual = "twin" | "bi" | "edge" | "alpr"
+export type ProjectVisual = "twin" | "bi" | "edge" | "alpr" | "rag"
 
 export type Project = {
   slug: string
@@ -152,6 +152,41 @@ export const projects: Project[] = [
     ],
     stack: ["YOLOv11-L-seg", "LPRNet", "OCR", "Arabic RTL", "FAISS", "LLM", "RAG"],
     visual: "alpr",
+    repositoryUrl: "https://github.com/Mokhtar-bouchekoua/FacPark",
+  },
+  {
+    slug: "semantia-rag-search",
+    number: "05",
+    title: "SémantIA — Semantic Search over Ingredient Technical Sheets",
+    shortTitle: "SémantIA RAG Search",
+    category: "Generative AI",
+    filters: ["Generative AI", "Full Stack"],
+    type: "Hackathon · AI Night Challenge",
+    timeframe: "Feb 2026",
+    role: "RAG pipeline and full stack development",
+    summary: "A bilingual semantic search engine over food-ingredient technical sheets, built for A.M.T (ROSE BLANCHE Group) during the AI Night Challenge.",
+    overview: "Bakery specialists need precise answers from technical sheets on enzymes, oxidising agents and additives. SémantIA ingests the PDF sheets, embeds them into PostgreSQL with pgvector, and returns the three most relevant passages for a question asked in French or English.",
+    contribution: [
+      "Built the ingestion pipeline: PDF parsing, chunking, all-MiniLM-L6-v2 embeddings and storage in PostgreSQL 16 with pgvector.",
+      "Structured the FastAPI backend with a hexagonal, domain-driven architecture (domain, ports, adapters, application).",
+      "Implemented an offline IR evaluation module (Hit@K, MRR, nDCG) exposed through the API and a CLI.",
+      "Developed the React 19 / Vite interface and packaged the database with Docker Compose.",
+    ],
+    implementation: [
+      "Technical-sheet PDFs are split into chunks and embedded with all-MiniLM-L6-v2 (384 dimensions).",
+      "Vectors are stored in PostgreSQL 16 with pgvector and ranked by cosine similarity (Top K = 3).",
+      "FastAPI exposes search, health, corpus statistics and evaluation endpoints.",
+      "Queries and scoring work in both French and English.",
+    ],
+    results: [
+      { value: "384", label: "dimensions", context: "all-MiniLM-L6-v2 sentence embeddings" },
+      { value: "Top 3", label: "passages", context: "cosine similarity through pgvector" },
+      { value: "4", label: "API endpoints", context: "search, health, stats and offline evaluation" },
+      { value: "FR / EN", label: "bilingual", context: "questions and scoring in French and English" },
+    ],
+    stack: ["Python", "FastAPI", "PostgreSQL", "pgvector", "sentence-transformers", "React", "Vite", "Docker Compose", "Hexagonal architecture"],
+    visual: "rag",
+    repositoryUrl: "https://github.com/Mokhtar-bouchekoua/RAG_A.T.M",
   },
 ]
 
@@ -170,12 +205,12 @@ export function getAdjacentProjects(slug: string) {
 }
 
 export const techGroups = [
-  { label: "Programming & backend", items: ["Python", "SQL", "JavaScript", "TypeScript", "C", "C++", "C#", "Java", "FastAPI", "Laravel"] },
-  { label: "AI & machine learning", items: ["PyTorch", "LightGBM", "Transformers", "YOLOv11", "LPRNet", "Anomaly detection", "Forecasting"] },
-  { label: "Generative AI & LLMOps", items: ["LangGraph", "LangChain", "RAG", "Agentic AI", "FAISS", "Langfuse", "MLflow"] },
-  { label: "Frontend & visualization", items: ["Next.js", "React", "Angular", "Three.js", "Streamlit", "Plotly", "Flutter"] },
-  { label: "Data, retrieval & IoT", items: ["PostgreSQL", "TimescaleDB", "pgvector", "MySQL", "SQL Server", "Firebase", "MQTT", "Edge Computing"] },
-  { label: "Delivery & monitoring", items: ["Docker", "Git", "GitLab", "CI/CD", "Jenkins", "Model monitoring", "LLM tracing"] },
+  { label: "AI & machine learning", labelFr: "IA et apprentissage automatique", items: ["Python", "PyTorch", "LightGBM", "Transformers", "YOLOv11", "Anomaly detection", "Forecasting"] },
+  { label: "Generative AI & LLMOps", labelFr: "IA générative et LLMOps", items: ["LangGraph", "LangChain", "RAG", "Agentic AI", "FAISS", "pgvector", "Langfuse", "MLflow"] },
+  { label: "Backend & data", labelFr: "Backend et données", items: ["FastAPI", "SQL", "PostgreSQL", "TimescaleDB", "MQTT", "Edge Computing"] },
+  { label: "Frontend & visualization", labelFr: "Frontend et visualisation", items: ["TypeScript", "Next.js", "React", "Three.js", "Streamlit", "Plotly"] },
+  { label: "Delivery & monitoring", labelFr: "Déploiement et observabilité", items: ["Docker", "Git", "CI/CD", "Model monitoring", "LLM tracing"] },
+  { label: "Also used", labelFr: "Également utilisé", items: ["C", "C++", "C#", "Java", "Laravel", "Angular", "Flutter", "Firebase", "MySQL", "SQL Server", "GitLab", "Jenkins"] },
 ] as const
 
 export const skills = ["Python", "FastAPI", "PyTorch", "LightGBM", "LangGraph", "Next.js", "React", "TimescaleDB", "MQTT", "Three.js", "Docker", "Langfuse"]
@@ -191,6 +226,16 @@ export const person = {
   title: "AI & Full Stack Engineer",
   location: "Sfax, Tunisia",
   email: "mokhtarbouchekoua@gmail.com",
+}
+
+export const availability = {
+  en: "Engineering graduate 2026 · Available now · Full-time (CDI) · Tunisia or remote",
+  fr: "Ingénieur diplômé 2026 · Disponible immédiatement · CDI · Tunisie ou remote",
+}
+
+export const recognition = {
+  en: ["Best Final-Year Project Award, 2023", "IEEE member", "CCNA"],
+  fr: ["Prix du meilleur projet de fin d’études, 2023", "Membre de l’IEEE", "CCNA"],
 }
 
 export const proofPoints = [

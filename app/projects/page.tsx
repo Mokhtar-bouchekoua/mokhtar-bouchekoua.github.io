@@ -11,9 +11,9 @@ export default function ProjectsPage() {
   return (
     <PageFrame>
       <section className="container page-hero">
-        <span className="eyebrow">SELECTED WORK / 01—04</span>
+        <span className="eyebrow">SELECTED WORK / 01—05</span>
         <h1>Selected <em>AI &amp; software</em> projects.</h1>
-        <p>Four projects spanning intelligent buildings, business intelligence, edge AI, and computer vision. Each case study shows the problem, my contribution, and the evaluation context.</p>
+        <p>Five projects spanning intelligent buildings, business intelligence, edge AI, computer vision and semantic search. Each case study shows the problem, my contribution, and the evaluation context.</p>
       </section>
       <section className="container projects-index">
         <div className="filter-row" role="group" aria-label="Filter projects by discipline">

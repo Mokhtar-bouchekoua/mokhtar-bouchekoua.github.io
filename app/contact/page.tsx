@@ -1,11 +1,13 @@
 import type { Metadata } from "next"
 import { ArrowUpRight, Mail } from "lucide-react"
 import { Avatar, PageFrame } from "@/components/site-shell"
-import { links, person } from "@/lib/projects"
+import { availability, links, person } from "@/lib/projects"
+import { localeAlternates } from "@/lib/site-url"
 
 export const metadata: Metadata = {
   title: "Contact",
   description: "Contact Mokhtar Bouchekoua about AI engineering and full stack opportunities.",
+  alternates: localeAlternates("/contact/", "en"),
 }
 
 export default function ContactPage() {
@@ -15,6 +17,7 @@ export default function ContactPage() {
         <div className="contact-topline"><span className="eyebrow">CONTACT / OPEN CHANNEL</span><span>SFAX, TUNISIA</span></div>
         <h1>Let&apos;s talk about <em>your project.</em></h1>
         <p>If you&apos;re building an AI product, working through a data challenge, or hiring across AI and full stack engineering, I&apos;d like to hear about it.</p>
+        <p className="availability-note">{availability.en}</p>
         <a className="email-link" href={links.email}><Mail size={26} aria-hidden="true" /><span>{person.email}</span><ArrowUpRight size={28} aria-hidden="true" /></a>
         <div className="contact-bottom">
           <div className="contact-identity"><Avatar size={54} /><span><strong>Mokhtar Bouchekoua</strong><small>AI &amp; Full Stack Engineer</small></span></div>

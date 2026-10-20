@@ -151,6 +151,8 @@ button { font: inherit; }
 .skill-cloud span { padding: 10px 13px; background: var(--surface); border: 1px solid var(--line); border-radius: 3px; color: var(--ink); font-size: 14px; }
 .closing-note { border-top: 1px solid var(--line); padding-block: 55px 75px; display: grid; grid-template-columns: .65fr 1.3fr auto; gap: 35px; align-items: center; }
 .closing-note p { font-size: 20px; font-weight: 570; letter-spacing: -.03em; max-width: 430px; margin: 0; }
+.closing-note p.availability-note, .contact-page>p.availability-note { margin: 12px 0 0; max-width: 340px; color: var(--muted); font-size: 14px; font-weight: 500; line-height: 1.55; letter-spacing: 0; }
+.contact-page>p.availability-note { max-width: 670px; margin-top: 18px; color: var(--blue); font-size: 15px; font-weight: 650; }
 .contact-text-link { display: inline-flex; gap: 12px; align-items: center; color: var(--blue); font-size: 12px; font-weight: 700; text-decoration: none; white-space: nowrap; }
 
 /* Case-study photography: generated conceptual visuals, not product screenshots. */
@@ -160,7 +162,6 @@ button { font: inherit; }
 .project-art-photo { z-index: 0; object-fit: cover; transition: transform .6s cubic-bezier(.2,.7,.2,1); }
 .project-art::after { content: ""; position: absolute; z-index: 1; inset: 0; pointer-events: none; background: linear-gradient(180deg, #0b162a70 0%, transparent 26%, transparent 62%, #0b162a73 100%); }
 .project-card:hover .project-art-photo { transform: scale(1.035); }
-.project-art-caption { position: absolute; z-index: 2; left: 20px; bottom: 18px; border: 1px solid #ffffff55; border-radius: 999px; padding: 7px 11px; color: #fff; background: #101b2bb8; backdrop-filter: blur(10px); font-size: 11px; line-height: 1.2; font-weight: 650; letter-spacing: .025em; }
 .art-bi .project-art-photo { object-position: center 54%; }
 .art-edge .project-art-photo { object-position: center 48%; }
 .art-alpr .project-art-photo { object-position: center 48%; }

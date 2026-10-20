@@ -5,6 +5,7 @@ import { getTranslations } from "next-intl/server"
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react"
 import { Diagram, PageFrame, ProjectArtwork } from "@/components/site-shell"
 import { getAdjacentProjects, getProject, projects } from "@/lib/projects"
+import { localeAlternates } from "@/lib/site-url"
 import { categoryLabel, projectForLocale } from "@/lib/project-translations"
 
 type Props = { params: Promise<{ slug: string }> }
@@ -20,7 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: localized?.title ?? "Projet introuvable",
     description: localized?.summary,
-    alternates: { canonical: `/fr/projects/${slug}/` },
+    alternates: localeAlternates(`/projects/${slug}/`, "fr"),
   }
 }
 

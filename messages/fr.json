@@ -48,10 +48,10 @@
     "explore": "DÉCOUVRIR LES PROJETS"
   },
   "Projects": {
-    "eyebrow": "PROJETS SÉLECTIONNÉS / 01—04",
+    "eyebrow": "PROJETS SÉLECTIONNÉS / 01—05",
     "title": "Projets",
     "titleAccent": "d’IA et de logiciel.",
-    "description": "Quatre projets autour des bâtiments intelligents, de l’intelligence d’affaires, de l’IA en périphérie et de la vision par ordinateur. Chaque étude présente le problème, ma contribution et le contexte d’évaluation.",
+    "description": "Cinq projets autour des bâtiments intelligents, de l’intelligence d’affaires, de l’IA en périphérie, de la vision par ordinateur et de la recherche sémantique. Chaque étude présente le problème, ma contribution et le contexte d’évaluation.",
     "filter": "Filtrer les projets par domaine",
     "all": "Tous",
     "showing": "AFFICHAGE DE {count} PROJETS SUR {total}",

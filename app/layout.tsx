@@ -3,6 +3,7 @@ import { siteUrl } from "@/lib/site-url"
 import { ThemeProvider } from "@/components/theme-provider"
 import { CloudflareAnalytics } from "@/components/cloudflare-analytics"
 import { LocaleAttribute } from "@/components/locale-attribute"
+import { links, person } from "@/lib/projects"
 import "./globals.css"
 
 export const metadata: Metadata = {
@@ -22,12 +23,27 @@ export const metadata: Metadata = {
   icons: { icon: "/icon.svg" },
 }
 
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: person.name,
+  jobTitle: person.title,
+  url: siteUrl,
+  image: `${siteUrl}/mokhtar-bouchekoua.jpg`,
+  email: `mailto:${person.email}`,
+  address: { "@type": "PostalAddress", addressLocality: "Sfax", addressCountry: "TN" },
+  alumniOf: { "@type": "CollegeOrUniversity", name: "International Institute of Technology (IIT) Sfax" },
+  knowsAbout: ["Artificial intelligence", "Machine learning", "Retrieval-augmented generation", "Time-series forecasting", "Full stack development"],
+  sameAs: [links.linkedin, links.github],
+}
+
 export const viewport: Viewport = { themeColor: "#f6f7f5", colorScheme: "light dark" }
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd).replace(/</g, "\\u003c") }} />
         <ThemeProvider>
           <LocaleAttribute />
           <a href="#main-content" className="skip-link">Skip to content</a>

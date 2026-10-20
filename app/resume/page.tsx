@@ -1,10 +1,12 @@
 import type { Metadata } from "next"
 import { ButtonLink, PageFrame } from "@/components/site-shell"
-import { links, techGroups } from "@/lib/projects"
+import { links, recognition, techGroups } from "@/lib/projects"
+import { localeAlternates } from "@/lib/site-url"
 
 export const metadata: Metadata = {
   title: "Resume",
   description: "Resume and experience of Mokhtar Bouchekoua, AI & Full Stack Engineer.",
+  alternates: localeAlternates("/resume/", "en"),
 }
 
 export default function ResumePage() {
@@ -41,7 +43,7 @@ export default function ResumePage() {
           </section>
 
           <section className="resume-section"><span className="eyebrow">03 / TECHNICAL FOCUS</span><div className="resume-tech">{techGroups.map((group) => <div key={group.label}><strong>{group.label}</strong><p>{group.items.join(" · ")}</p></div>)}</div></section>
-          <section className="resume-section resume-last"><span className="eyebrow">04 / RECOGNITION & CERTIFICATIONS</span><p>Best Final-Year Project Award, 2023 · IEEE member · Arduino (ISGIS) · Python Certificate · CCNA · AWS Badge</p></section>
+          <section className="resume-section resume-last"><span className="eyebrow">04 / RECOGNITION & CERTIFICATIONS</span><p>{recognition.en.join(" · ")}</p></section>
         </div>
       </div>
     </PageFrame>

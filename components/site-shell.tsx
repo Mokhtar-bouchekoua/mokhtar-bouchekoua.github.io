@@ -102,11 +102,13 @@ export function Diagram({ project, locale = "en" }: { project: Project; locale?:
     bi: ["Exports ERP", "Validation des données", "Indicateurs financiers", "Assistant LLM"],
     edge: ["Flux IoT", "TCN causal", "Modèle multitâche", "Cause racine"],
     alpr: ["Image de plaque", "YOLOv11", "LPRNet + RTL", "RAG avec FAISS"],
+    rag: ["Fiches PDF", "Embeddings 384-d", "pgvector cosinus", "Top 3 passages"],
   } : {
     twin: ["IoT sources", "FastAPI + MQTT", "TimescaleDB + AI", "3D interface"],
     bi: ["ERP exports", "Data validation", "Financial KPIs", "LLM assistant"],
     edge: ["IoT stream", "Causal TCN", "Multi-task model", "Root cause"],
     alpr: ["Plate image", "YOLOv11", "LPRNet + RTL", "FAISS RAG"],
+    rag: ["PDF sheets", "384-d embeddings", "pgvector cosine", "Top 3 passages"],
   }
 
   return (

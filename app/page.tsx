@@ -11,7 +11,11 @@ import {
   ScrollCue,
   SectionIntro,
 } from "@/components/site-shell"
-import { projects, proofPoints, skills } from "@/lib/projects"
+import type { Metadata } from "next"
+import { availability, projects, proofPoints, skills } from "@/lib/projects"
+import { localeAlternates } from "@/lib/site-url"
+
+export const metadata: Metadata = { alternates: localeAlternates("/", "en") }
 
 export default function HomePage() {
   return (
@@ -77,7 +81,7 @@ export default function HomePage() {
       </section>
 
       <section className="container closing-note">
-        <span className="eyebrow">OPEN TO NEW OPPORTUNITIES</span>
+        <div><span className="eyebrow">OPEN TO NEW OPPORTUNITIES</span><p className="availability-note">{availability.en}</p></div>
         <p>Have a challenge at the intersection of AI and software engineering?</p>
         <ContactLink />
       </section>

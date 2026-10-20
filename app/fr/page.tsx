@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { localeAlternates } from "@/lib/site-url"
 import Link from "next/link"
 import { getTranslations } from "next-intl/server"
 import { ArrowUpRight } from "lucide-react"
@@ -13,12 +14,12 @@ import {
   ScrollCue,
   SectionIntro,
 } from "@/components/site-shell"
-import { projects, skills } from "@/lib/projects"
+import { availability, projects, skills } from "@/lib/projects"
 import { projectForLocale } from "@/lib/project-translations"
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations({ locale: "fr", namespace: "Home" })
-  return { title: "Accueil", description: t("lede"), alternates: { canonical: "/fr/" } }
+  return { title: "Accueil", description: t("lede"), alternates: localeAlternates("/", "fr") }
 }
 
 export default async function FrenchHomePage() {
@@ -92,7 +93,7 @@ export default async function FrenchHomePage() {
       </section>
 
       <section className="container closing-note">
-        <span className="eyebrow">{t("opportunities")}</span>
+        <div><span className="eyebrow">{t("opportunities")}</span><p className="availability-note">{availability.fr}</p></div>
         <p>{t("closing")}</p>
         <ContactLink locale="fr" />
       </section>

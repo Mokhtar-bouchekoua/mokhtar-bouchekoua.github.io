@@ -18,6 +18,10 @@ const artwork = {
     src: "/projects/alpr.webp",
     alt: { en: "Concept illustration of privacy-safe computer vision detecting a blank vehicle plate", fr: "Illustration conceptuelle d’une vision par ordinateur détectant une plaque vierge, sans donnée personnelle" },
   },
+  rag: {
+    src: "/projects/semantia.webp",
+    alt: { en: "Concept illustration of document passages ranked by semantic similarity", fr: "Illustration conceptuelle de passages de documents classés par similarité sémantique" },
+  },
 } satisfies Record<Project["visual"], { src: string; alt: Record<"en" | "fr", string> }>
 
 export function ProjectArtwork({ visual, compact = false, locale = "en" }: {
@@ -25,7 +29,6 @@ export function ProjectArtwork({ visual, compact = false, locale = "en" }: {
   compact?: boolean
   locale?: "en" | "fr"
 }) {
-  const french = locale === "fr"
   const asset = artwork[visual]
 
   return (
@@ -38,7 +41,6 @@ export function ProjectArtwork({ visual, compact = false, locale = "en" }: {
         className="project-art-photo"
         priority={!compact}
       />
-      <span className="project-art-caption">{french ? "Illustration conceptuelle" : "Concept illustration"}</span>
     </div>
   )
 }

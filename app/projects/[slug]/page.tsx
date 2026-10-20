@@ -4,6 +4,7 @@ import { notFound } from "next/navigation"
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react"
 import { Diagram, PageFrame, ProjectArtwork } from "@/components/site-shell"
 import { getAdjacentProjects, getProject, projects } from "@/lib/projects"
+import { localeAlternates } from "@/lib/site-url"
 
 type Props = { params: Promise<{ slug: string }> }
 
@@ -14,7 +15,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
   const project = getProject(slug)
-  return { title: project?.title ?? "Project not found", description: project?.summary }
+  return { title: project?.title ?? "Project not found", description: project?.summary, alternates: localeAlternates(`/projects/${slug}/`, "en") }
 }
 
 export default async function CaseStudyPage({ params }: Props) {
