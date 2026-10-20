@@ -165,7 +165,7 @@ export const projects: Project[] = [
     timeframe: "Feb 2026",
     role: "RAG pipeline and full stack development",
     summary: "A bilingual semantic search engine over food-ingredient technical sheets, built for A.M.T (ROSE BLANCHE Group) during the AI Night Challenge.",
-    overview: "Bakery specialists need precise answers from technical sheets on enzymes, oxidising agents and additives. SémantIA ingests the PDF sheets, embeds them into PostgreSQL with pgvector, and returns the three most relevant passages for a question asked in French or English.",
+    overview: "Bakery specialists need precise answers from technical sheets on enzymes, oxidizing agents and additives. SémantIA ingests the PDF sheets, embeds them into PostgreSQL with pgvector, and returns the three most relevant passages for a question asked in French or English.",
     contribution: [
       "Built the ingestion pipeline: PDF parsing, chunking, all-MiniLM-L6-v2 embeddings and storage in PostgreSQL 16 with pgvector.",
       "Structured the FastAPI backend with a hexagonal, domain-driven architecture (domain, ports, adapters, application).",

@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { ArrowUpRight, Mail } from "lucide-react"
 import { Avatar, PageFrame } from "@/components/site-shell"
+import { CopyEmailButton } from "@/features/contact/ui/copy-email-button"
 import { availability, links, person } from "@/lib/projects"
 import { localeAlternates } from "@/lib/site-url"
 
@@ -19,6 +20,7 @@ export default function ContactPage() {
         <p>If you&apos;re building an AI product, working through a data challenge, or hiring across AI and full stack engineering, I&apos;d like to hear about it.</p>
         <p className="availability-note">{availability.en}</p>
         <a className="email-link" href={links.email}><Mail size={26} aria-hidden="true" /><span>{person.email}</span><ArrowUpRight size={28} aria-hidden="true" /></a>
+        <CopyEmailButton email={person.email} />
         <div className="contact-bottom">
           <div className="contact-identity"><Avatar size={54} /><span><strong>Mokhtar Bouchekoua</strong><small>AI &amp; Full Stack Engineer</small></span></div>
           <div className="contact-socials"><a href={links.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn <ArrowUpRight size={16} aria-hidden="true" /></a><a href={links.github} target="_blank" rel="noopener noreferrer">GitHub <ArrowUpRight size={16} aria-hidden="true" /></a></div>

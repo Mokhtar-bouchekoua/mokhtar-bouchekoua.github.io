@@ -1,8 +1,10 @@
 import type { Metadata } from "next"
-import { localeAlternates } from "@/lib/site-url"
 import { getTranslations } from "next-intl/server"
 import { ButtonLink, PageFrame } from "@/components/site-shell"
 import { links, recognition, techGroups } from "@/lib/projects"
+import { education, experience, languages } from "@/lib/profile"
+import { skillLabel } from "@/lib/project-translations"
+import { localeAlternates } from "@/lib/site-url"
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations({ locale: "fr", namespace: "Resume" })
@@ -27,24 +29,18 @@ export default async function FrenchResumePage() {
         <aside className="resume-aside">
           <div><span className="eyebrow">{t("profile")}</span><h2>Mokhtar<br />Bouchekoua</h2><p>Ingénieur IA et Full Stack<br />Sfax, Tunisie</p></div>
           <div><span className="eyebrow">{t("contactLabel")}</span><a href={links.email}>mokhtarbouchekoua@gmail.com</a><a href={links.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href={links.github} target="_blank" rel="noopener noreferrer">GitHub ↗</a></div>
-          <div><span className="eyebrow">{t("languages")}</span><p>Arabe · Français · Anglais</p></div>
+          <div><span className="eyebrow">{t("languages")}</span><p>{languages.fr}</p></div>
         </aside>
 
         <div className="resume-main">
-          <section className="resume-section"><span className="eyebrow">{t("experience")}</span>
-            <article><time>2026</time><div><h3>Ingénieur IA et Full Stack</h3><strong>I-Way · Projet de fin d’études</strong><p>Développement d’un jumeau numérique réunissant ingestion IoT, prévisions, détection d’anomalies, RAG agentique et visualisation 3D.</p></div></article>
-            <article><time>2025</time><div><h3>Stagiaire Data &amp; IA / BI</h3><strong>MyPartner</strong><p>Amélioration de la qualité des données ERP et développement d’une application d’analyse financière enrichie par l’IA.</p></div></article>
-            <article><time>2025</time><div><h3>Contribution à un projet de recherche en Edge AI</h3><strong>IIT Sfax</strong><p>Contribution technique à un projet de recherche académique plus large, mené sous supervision universitaire et en collaboration avec une équipe de recherche à Toulouse, en France. Le projet porte sur la détection d’anomalies, la classification de leur type et l’analyse des causes racines dans des données IoT multivariées.</p></div></article>
-            <article><time>2024</time><div><h3>Stagiaire développeur Full Stack</h3><strong>Flash Marketing Digital</strong><p>Développement de la plateforme e-commerce Allo Fruit avec Laravel, React et MySQL.</p></div></article>
+          <section className="resume-section"><h2 className="eyebrow">{t("experience")}</h2>
+            {experience.map((item) => <article key={item.title.fr}><time>{item.period.fr}</time><div><h3>{item.title.fr}</h3><strong>{item.place.fr}</strong><p>{item.detail.fr}</p></div></article>)}
           </section>
-
-          <section className="resume-section"><span className="eyebrow">{t("education")}</span>
-            <article><time>2023—2026</time><div><h3>Diplôme National d’Ingénieur en Génie Informatique</h3><strong>Institut International de Technologie · Sfax</strong></div></article>
-            <article><time>2023</time><div><h3>Licence en électronique, génie électrique et automatisme</h3><strong>Institut Supérieur de Gestion Industrielle · Sfax</strong></div></article>
+          <section className="resume-section"><h2 className="eyebrow">{t("education")}</h2>
+            {education.map((item) => <article key={item.title.fr}><time>{item.period.fr}</time><div><h3>{item.title.fr}</h3><strong>{item.place.fr}</strong></div></article>)}
           </section>
-
-          <section className="resume-section"><span className="eyebrow">{t("focus")}</span><div className="resume-tech">{techGroups.map((group) => <div key={group.label}><strong>{group.labelFr}</strong><p>{group.items.join(" · ")}</p></div>)}</div></section>
-          <section className="resume-section resume-last"><span className="eyebrow">{t("recognition")}</span><p>{recognition.fr.join(" · ")}</p></section>
+          <section className="resume-section"><h2 className="eyebrow">{t("focus")}</h2><div className="resume-tech">{techGroups.map((group) => <div key={group.label}><strong>{group.labelFr}</strong><p>{group.items.map((item) => skillLabel(item, "fr")).join(" · ")}</p></div>)}</div></section>
+          <section className="resume-section resume-last"><h2 className="eyebrow">{t("recognition")}</h2><p>{recognition.fr.join(" · ")}</p></section>
         </div>
       </div>
     </PageFrame>

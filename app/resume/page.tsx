@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { ButtonLink, PageFrame } from "@/components/site-shell"
 import { links, recognition, techGroups } from "@/lib/projects"
+import { education, experience, languages } from "@/lib/profile"
 import { localeAlternates } from "@/lib/site-url"
 
 export const metadata: Metadata = {
@@ -26,24 +27,18 @@ export default function ResumePage() {
         <aside className="resume-aside">
           <div><span className="eyebrow">PROFILE</span><h2>Mokhtar<br />Bouchekoua</h2><p>AI &amp; Full Stack Engineer<br />Sfax, Tunisia</p></div>
           <div><span className="eyebrow">CONTACT</span><a href={links.email}>mokhtarbouchekoua@gmail.com</a><a href={links.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href={links.github} target="_blank" rel="noopener noreferrer">GitHub ↗</a></div>
-          <div><span className="eyebrow">LANGUAGES</span><p>Arabic · French · English</p></div>
+          <div><span className="eyebrow">LANGUAGES</span><p>{languages.en}</p></div>
         </aside>
 
         <div className="resume-main">
-          <section className="resume-section"><span className="eyebrow">01 / EXPERIENCE</span>
-            <article><time>2026</time><div><h3>AI &amp; Full Stack Engineer</h3><strong>I-Way · Final-year project</strong><p>Built a digital twin platform combining IoT ingestion, forecasting, anomaly detection, Agentic RAG and 3D visualization.</p></div></article>
-            <article><time>2025</time><div><h3>Data &amp; AI / BI Intern</h3><strong>MyPartner</strong><p>Improved ERP data quality and developed an AI-enhanced financial analysis application.</p></div></article>
-            <article><time>2025</time><div><h3>Edge AI Research Contribution</h3><strong>IIT Sfax</strong><p>Technical contribution to a broader academic research project under academic supervision and in collaboration with a research team in Toulouse, France, focused on anomaly detection, anomaly-type classification and root cause analysis in multivariate IoT data.</p></div></article>
-            <article><time>2024</time><div><h3>Full Stack Developer Intern</h3><strong>Flash Marketing Digital</strong><p>Developed the Allo Fruit e-commerce platform with Laravel, React and MySQL.</p></div></article>
+          <section className="resume-section"><h2 className="eyebrow">EXPERIENCE</h2>
+            {experience.map((item) => <article key={item.title.en}><time>{item.period.en}</time><div><h3>{item.title.en}</h3><strong>{item.place.en}</strong><p>{item.detail.en}</p></div></article>)}
           </section>
-
-          <section className="resume-section"><span className="eyebrow">02 / EDUCATION</span>
-            <article><time>2023—2026</time><div><h3>National Engineering Degree (Diplôme National d’Ingénieur) in Computer Engineering</h3><strong>International Institute of Technology · Sfax</strong></div></article>
-            <article><time>2023</time><div><h3>Bachelor&apos;s Degree in Electronics, Electrical Engineering and Automation</h3><strong>Higher Institute of Industrial Management · Sfax</strong></div></article>
+          <section className="resume-section"><h2 className="eyebrow">EDUCATION</h2>
+            {education.map((item) => <article key={item.title.en}><time>{item.period.en}</time><div><h3>{item.title.en}</h3><strong>{item.place.en}</strong></div></article>)}
           </section>
-
-          <section className="resume-section"><span className="eyebrow">03 / TECHNICAL FOCUS</span><div className="resume-tech">{techGroups.map((group) => <div key={group.label}><strong>{group.label}</strong><p>{group.items.join(" · ")}</p></div>)}</div></section>
-          <section className="resume-section resume-last"><span className="eyebrow">04 / RECOGNITION & CERTIFICATIONS</span><p>{recognition.en.join(" · ")}</p></section>
+          <section className="resume-section"><h2 className="eyebrow">TECHNICAL FOCUS</h2><div className="resume-tech">{techGroups.map((group) => <div key={group.label}><strong>{group.label}</strong><p>{group.items.join(" · ")}</p></div>)}</div></section>
+          <section className="resume-section resume-last"><h2 className="eyebrow">RECOGNITION &amp; CERTIFICATION</h2><p>{recognition.en.join(" · ")}</p></section>
         </div>
       </div>
     </PageFrame>

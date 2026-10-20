@@ -42,31 +42,31 @@ export default async function CaseStudyPage({ params }: Props) {
         <div className="container case-hero-art"><ProjectArtwork visual={project.visual} /></div>
 
         <section className="container case-section case-overview">
-          <div><span className="eyebrow">01 / OVERVIEW</span><h2>The problem and the system.</h2></div>
+          <div><span className="eyebrow">OVERVIEW</span><h2>The problem and the system.</h2></div>
           <p>{project.overview}</p>
         </section>
 
         <section className="container case-section">
-          <div className="case-section-heading"><span className="eyebrow">02 / MY CONTRIBUTION</span><h2>Where I worked.</h2></div>
-          <div className="contribution-grid">
-            {project.contribution.map((item, index) => <div key={item}><span>0{index + 1}</span><p>{item}</p></div>)}
-          </div>
+          <div className="case-section-heading"><span className="eyebrow">MY CONTRIBUTION</span><h2>Where I worked.</h2></div>
+          <ul className="contribution-grid">
+            {project.contribution.map((item) => <li key={item}>{item}</li>)}
+          </ul>
         </section>
 
         <section className="case-process">
           <div className="container">
-            <div className="case-section-heading"><span className="eyebrow">03 / SYSTEM FLOW</span><h2>From input to outcome.</h2></div>
+            <div className="case-section-heading"><span className="eyebrow">SYSTEM FLOW</span><h2>From input to outcome.</h2></div>
             <Diagram project={project} />
           </div>
         </section>
 
         <section className="container case-section case-approach">
-          <div><span className="eyebrow">04 / IMPLEMENTATION</span><h2>How it works.</h2></div>
+          <div><span className="eyebrow">IMPLEMENTATION</span><h2>How it works.</h2></div>
           <ol>{project.implementation.map((item) => <li key={item}>{item}</li>)}</ol>
         </section>
 
         <section className="container case-section">
-          <div className="case-section-heading"><span className="eyebrow">05 / RESULTS</span><h2>Measured in context.</h2></div>
+          <div className="case-section-heading"><span className="eyebrow">RESULTS</span><h2>Measured in context.</h2></div>
           <div className="results-grid">
             {project.results.map((result) => <div className="result-card" key={result.label}>
               <strong>{result.value}</strong><span>{result.label}</span><p>{result.context}</p>
@@ -75,7 +75,7 @@ export default async function CaseStudyPage({ params }: Props) {
         </section>
 
         <section className="container case-section stack-section">
-          <div><span className="eyebrow">06 / TECHNOLOGY</span><h2>The tools behind the work.</h2></div>
+          <div><span className="eyebrow">TECHNOLOGY</span><h2>The tools behind the work.</h2></div>
           <div className="skill-cloud">{project.stack.map((item) => <span key={item}>{item}</span>)}</div>
         </section>
 

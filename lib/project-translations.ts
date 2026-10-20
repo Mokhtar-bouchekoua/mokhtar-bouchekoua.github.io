@@ -140,6 +140,17 @@ export function projectForLocale(project: Project, locale: "en" | "fr"): Project
   return { ...project, ...frenchProjectCopy[project.slug] }
 }
 
+const frenchSkillLabels: Record<string, string> = {
+  "Anomaly detection": "Détection d’anomalies",
+  Forecasting: "Prévision",
+  "Model monitoring": "Suivi des modèles",
+  "LLM tracing": "Traçage des LLM",
+}
+
+export function skillLabel(skill: string, locale: "en" | "fr") {
+  return locale === "fr" ? frenchSkillLabels[skill] ?? skill : skill
+}
+
 export function categoryLabel(category: Project["category"] | "All", locale: "en" | "fr") {
   if (locale === "en") return category
   const labels: Record<Project["category"] | "All", string> = {

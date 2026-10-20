@@ -59,14 +59,14 @@ export function SectionIntro({ eyebrow, title, description }: {
 }
 
 export function Avatar({ size = 48, locale = "en" }: { size?: number; locale?: "en" | "fr" }) {
-  return <Image src="/mokhtar-bouchekoua.jpg" alt={locale === "fr" ? "Portrait de Mokhtar Bouchekoua" : "Portrait of Mokhtar Bouchekoua"} width={size} height={size} className="avatar" />
+  return <Image src="/mokhtar-bouchekoua-portrait.jpg" alt={locale === "fr" ? "Portrait de Mokhtar Bouchekoua" : "Portrait of Mokhtar Bouchekoua"} width={size} height={size} className="avatar" />
 }
 
 export function HeroVisual({ locale = "en" }: { locale?: "en" | "fr" }) {
   const french = locale === "fr"
   return (
     <div className="hero-visual" aria-label={french ? "Architecture du jumeau numérique : ingestion HTTP et MQTT avec FastAPI, stockage PostgreSQL et TimescaleDB, services IA LightGBM et LangGraph, interface Next.js et Three.js" : "Digital twin architecture: HTTP and MQTT ingestion through FastAPI, PostgreSQL and TimescaleDB storage, LightGBM and LangGraph AI services, and a Next.js with Three.js interface"} role="img">
-      <div className="hero-visual-top"><span>{french ? "PROJET 01 / JUMEAU NUMÉRIQUE" : "CASE 01 / DIGITAL TWIN"}</span><span>I-WAY · 2026</span></div>
+      <div className="hero-visual-top"><span>{french ? "ÉTUDE DE CAS · JUMEAU NUMÉRIQUE" : "CASE STUDY · DIGITAL TWIN"}</span><span>I-WAY · 2026</span></div>
       <div className="hero-visual-body">
         <div className="architecture-list">
           <div className="architecture-row"><span>01</span><div><strong>{french ? "Ingérer" : "Ingest"}</strong><small>HTTP · MQTT · FastAPI</small></div><i /></div>
@@ -76,7 +76,7 @@ export function HeroVisual({ locale = "en" }: { locale?: "en" | "fr" }) {
         </div>
         <div className="architecture-stat"><span>{french ? "DONNÉES OBSERVÉES" : "OBSERVED DATA"}</span><strong>470,857</strong><small>{french ? "mesures IoT recueillies sur environ 14,6 mois" : "IoT measurements across approximately 14.6 months"}</small></div>
       </div>
-      <div className="hero-visual-bottom"><span>{french ? "DES SIGNAUX AUX DÉCISIONS" : "BUILDING SIGNALS → USABLE DECISIONS"}</span><span>↗</span></div>
+      <div className="hero-visual-bottom"><span>{french ? "DES SIGNAUX AUX DÉCISIONS" : "SIGNALS → DECISIONS"}</span><span>↗</span></div>
     </div>
   )
 }
@@ -112,13 +112,23 @@ export function Diagram({ project, locale = "en" }: { project: Project; locale?:
   }
 
   return (
-    <div className="process-diagram" aria-label={`Conceptual workflow: ${steps[project.visual].join(" to ")}`}>
-      {steps[project.visual].map((step, index) => (
-        <div className="process-step" key={step}>
-          <span>0{index + 1}</span><strong>{step}</strong>
-          {index < 3 && <ArrowRight size={18} aria-hidden="true" />}
-        </div>
+    <ol className="process-diagram" aria-label={locale === "fr" ? "Flux du système" : "System flow"}>
+      {steps[project.visual].map((step, index, all) => (
+        <li className="process-step" key={step}>
+          <strong>{step}</strong>
+          {index < all.length - 1 && <ArrowRight size={18} aria-hidden="true" />}
+        </li>
       ))}
+    </ol>
+  )
+}
+
+export function FeatureStats({ label, foot, stats }: { label: string; foot: string; stats: { value: string; label: string }[] }) {
+  return (
+    <div className="feature-number feature-stats">
+      <span className="feature-label">{label}</span>
+      <dl>{stats.map((stat) => <div key={stat.label}><dt>{stat.label}</dt><dd>{stat.value}</dd></div>)}</dl>
+      <span className="feature-foot">{foot}</span>
     </div>
   )
 }

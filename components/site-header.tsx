@@ -44,7 +44,7 @@ export function SiteHeader() {
     <header className="site-header">
       <div className="container header-inner">
         <Link href={localizedHref("/")} className="brand" aria-label="Mokhtar Bouchekoua, home">
-          <Image src="/mokhtar-bouchekoua.jpg" alt="" width={38} height={38} className="brand-photo" />
+          <Image src="/mokhtar-bouchekoua-portrait.jpg" alt="" width={38} height={38} className="brand-photo" />
           <span>Mokhtar <strong>Bouchekoua</strong></span>
         </Link>
         <nav className="desktop-nav" aria-label={copy.main}>

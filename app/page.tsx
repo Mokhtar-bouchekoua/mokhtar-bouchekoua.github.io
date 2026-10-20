@@ -4,6 +4,7 @@ import {
   Avatar,
   ButtonLink,
   ContactLink,
+  FeatureStats,
   HeroVisual,
   MetricStrip,
   PageFrame,
@@ -44,7 +45,7 @@ export default function HomePage() {
 
       <section className="section-block container" id="selected-work">
         <div className="section-heading-row">
-          <SectionIntro eyebrow="01 / SELECTED WORK" title="Projects with measured outcomes." description="Applied AI projects showing the system, my contribution and the evaluation behind each result." />
+          <SectionIntro eyebrow="SELECTED WORK" title="Projects with measured outcomes." description="Applied AI projects showing the system, my contribution and the evaluation behind each result." />
           <Link href="/projects" className="text-link">All projects <ArrowUpRight size={17} aria-hidden="true" /></Link>
         </div>
         <div className="project-grid">
@@ -55,24 +56,26 @@ export default function HomePage() {
       <section className="feature-story">
         <div className="container feature-grid">
           <div className="feature-copy">
-            <span className="eyebrow light">02 / IN FOCUS · DIGITAL TWIN</span>
-            <h2>Less noise.<br /><em>More signal.</em></h2>
-            <p>The anomaly pipeline groups raw events into actionable incidents. It sits inside a wider building platform with live IoT data, energy forecasting, RAG, and a 3D interface.</p>
-            <Link href="/projects/digital-twin-platform" className="feature-link">Explore the Digital Twin case study <ArrowUpRight size={18} aria-hidden="true" /></Link>
+            <span className="eyebrow light">IN FOCUS · COMPUTER VISION</span>
+            <h2>From plate<br /><em>to decision.</em></h2>
+            <p>An access-control pipeline for Tunisian license plates: YOLOv11 detects and segments the plate, LPRNet reads it with Arabic right-to-left post-processing, and a FAISS-based RAG assistant retrieves the context behind each decision.</p>
+            <Link href="/projects/smartalpr-plaqueguard" className="feature-link">Explore the SmartALPR case study <ArrowUpRight size={18} aria-hidden="true" /></Link>
           </div>
-          <div className="feature-number" aria-label="647 raw anomaly events consolidated into 23 actionable incidents">
-            <span className="feature-label">ANOMALY PIPELINE / EVALUATION</span>
-            <div><strong>647</strong><span>RAW EVENTS</span></div>
-            <div className="feature-arrow">↓</div>
-            <div><strong>23</strong><span>ACTIONABLE INCIDENTS</span></div>
-            <span className="feature-foot">I-WAY · FINAL-YEAR PROJECT · 2026</span>
-          </div>
+          <FeatureStats
+            label="SMARTALPR / EVALUATION"
+            foot="AI ACADEMIC PROJECT · COMPUTER VISION"
+            stats={[
+              { value: "89%", label: "mAP@0.5 · plate detection" },
+              { value: "≈22", label: "FPS · detection throughput" },
+              { value: "88%", label: "Hit rate · RAG retrieval" },
+            ]}
+          />
         </div>
       </section>
 
       <section className="technical-section container">
         <div>
-          <span className="eyebrow">03 / TOOLKIT</span>
+          <span className="eyebrow">TOOLKIT</span>
           <h2>The stack behind <em>the work.</em></h2>
           <p>I work across Python services, real-time data, retrieval systems, and modern web interfaces.</p>
           <Link href="/about" className="text-link">More about me <ArrowUpRight size={17} aria-hidden="true" /></Link>

@@ -54,7 +54,7 @@ export default async function FrenchCaseStudyPage({ params }: Props) {
 
         <section className="container case-section">
           <div className="case-section-heading"><span className="eyebrow">{t("contribution")}</span><h2>{t("where")}</h2></div>
-          <div className="contribution-grid">{project.contribution.map((item, index) => <div key={item}><span>0{index + 1}</span><p>{item}</p></div>)}</div>
+          <ul className="contribution-grid">{project.contribution.map((item) => <li key={item}>{item}</li>)}</ul>
         </section>
 
         <section className="case-process">

@@ -7,6 +7,7 @@ import {
   Avatar,
   ButtonLink,
   ContactLink,
+  FeatureStats,
   HeroVisual,
   MetricStrip,
   PageFrame,
@@ -70,15 +71,17 @@ export default async function FrenchHomePage() {
             <span className="eyebrow light">{t("focusEyebrow")}</span>
             <h2>{t("focusTitle")}<br /><em>{t("focusAccent")}</em></h2>
             <p>{t("focusDescription")}</p>
-            <Link href="/fr/projects/digital-twin-platform" className="feature-link">{t("focusLink")} <ArrowUpRight size={18} aria-hidden="true" /></Link>
+            <Link href="/fr/projects/smartalpr-plaqueguard" className="feature-link">{t("focusLink")} <ArrowUpRight size={18} aria-hidden="true" /></Link>
           </div>
-          <div className="feature-number" aria-label="647 événements bruts regroupés en 23 incidents exploitables">
-            <span className="feature-label">PIPELINE D’ANOMALIES / ÉVALUATION</span>
-            <div><strong>647</strong><span>ÉVÉNEMENTS BRUTS</span></div>
-            <div className="feature-arrow">↓</div>
-            <div><strong>23</strong><span>INCIDENTS EXPLOITABLES</span></div>
-            <span className="feature-foot">I-WAY · PROJET DE FIN D’ÉTUDES · 2026</span>
-          </div>
+          <FeatureStats
+            label="SMARTALPR / ÉVALUATION"
+            foot="PROJET ACADÉMIQUE EN IA · VISION PAR ORDINATEUR"
+            stats={[
+              { value: "89 %", label: "mAP@0.5 · détection des plaques" },
+              { value: "≈ 22", label: "FPS · débit de détection" },
+              { value: "88 %", label: "Hit rate · recherche RAG" },
+            ]}
+          />
         </div>
       </section>
 
